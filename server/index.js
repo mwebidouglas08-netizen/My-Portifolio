@@ -85,7 +85,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
     res.json({ success: true, message: 'Message received! I will get back to you shortly.' });
   } catch (err) {
     console.error('Email error:', err);
-    res.status(500).json({ success: false, message: 'Failed to send message. Please email me directly at daggytechs@gmail.com' });
+    res.status(500).json({ success: false, message: 'Failed to send message. Please email me directly at mwebidouglas08@gmail.com' });
   }
 });
 
