@@ -13,9 +13,6 @@
 </head>
 <body>
 
-  <!-- Canvas background -->
-  <canvas id="bgCanvas"></canvas>
-
   <!-- ───── NAV ───── -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -30,139 +27,147 @@
       </ul>
       <a href="mailto:mwebidouglas08@gmail.com" class="nav-cta">
         <span>Hire Me</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile" id="navMobile">
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#about"    class="mobile-link">About</a>
+      <a href="#skills"   class="mobile-link">Skills</a>
       <a href="#projects" class="mobile-link">Projects</a>
-      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="#contact"  class="mobile-link">Contact</a>
       <a href="mailto:mwebidouglas08@gmail.com" class="mobile-cta">Hire Me →</a>
     </div>
   </nav>
 
   <!-- ───── HERO ───── -->
   <section class="hero" id="hero">
+
+    <!-- HD Background image + overlays -->
+    <div class="hero-bg"></div>
+    <div class="hero-overlay-grad"></div>
+    <div class="hero-grid"></div>
+
     <div class="hero-inner">
 
-      <!-- Left: text content -->
+      <!-- LEFT: text -->
       <div class="hero-left">
+
         <div class="hero-tag" data-anim="fade-up" data-delay="0">
           <span class="tag-dot"></span>
-          <span>Available for freelance projects</span>
+          Available for freelance &amp; contract work
         </div>
 
-        <h1 class="hero-name" data-anim="fade-up" data-delay="1">
-          <span>Douglas</span>
-          <span class="name-accent">Mwebi</span>
+        <h1 class="hero-heading" data-anim="fade-up" data-delay="1">
+          <span class="heading-line">Douglas</span>
+          <span class="heading-line heading-accent">Mwebi</span>
         </h1>
 
-        <div class="hero-role-line" data-anim="fade-up" data-delay="2">
-          <span class="role-text">Full-Stack Engineer</span>
-          <span class="role-sep">·</span>
+        <div class="hero-role" data-anim="fade-up" data-delay="2">
+          <span class="role-main">Full-Stack Engineer</span>
+          <span class="role-dot">·</span>
           <span class="role-brand">Daggy Techs</span>
         </div>
 
         <p class="hero-desc" data-anim="fade-up" data-delay="3">
           Building production-grade platforms from Kisii, Kenya —
-          across fintech, civic tech, AI, and cybersecurity.
+          fintech, civic tech, AI &amp; cybersecurity.
         </p>
 
-        <div class="hero-ctas" data-anim="fade-up" data-delay="4">
+        <div class="hero-actions" data-anim="fade-up" data-delay="4">
           <a href="#projects" class="btn-primary">
-            <span>View Projects</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            View Projects
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#contact" class="btn-outline">Get In Touch</a>
+          <a href="#contact" class="btn-ghost">Get In Touch</a>
         </div>
 
         <div class="hero-stats" data-anim="fade-up" data-delay="5">
-          <div class="hstat">
-            <span class="hstat-n" data-count="10">0</span><span class="hstat-plus">+</span>
-            <span class="hstat-l">Projects</span>
+          <div class="stat-item">
+            <span class="stat-n" data-count="10">0</span><span class="stat-plus">+</span>
+            <span class="stat-l">Projects</span>
           </div>
-          <div class="hstat-sep"></div>
-          <div class="hstat">
-            <span class="hstat-n" data-count="3">0</span><span class="hstat-plus">+</span>
-            <span class="hstat-l">Years</span>
+          <div class="stat-rule"></div>
+          <div class="stat-item">
+            <span class="stat-n" data-count="3">0</span><span class="stat-plus">+</span>
+            <span class="stat-l">Years</span>
           </div>
-          <div class="hstat-sep"></div>
-          <div class="hstat">
-            <span class="hstat-n">🇰🇪</span>
-            <span class="hstat-l">Kenya</span>
+          <div class="stat-rule"></div>
+          <div class="stat-item">
+            <span class="stat-n">🇰🇪</span>
+            <span class="stat-l">Kenya</span>
           </div>
         </div>
+
       </div>
 
-      <!-- Right: photo card -->
-      <div class="hero-right" data-anim="fade-left" data-delay="3">
-        <div class="photo-card">
-          <div class="photo-card-inner">
+      <!-- RIGHT: photo card -->
+      <div class="hero-right" data-anim="fade-left" data-delay="2">
+        <div class="photo-wrap">
+          <div class="photo-frame">
             <img
               src="/images/douglas.jpg"
               alt="Douglas Mwebi"
               class="photo-img"
-              onerror="this.parentElement.innerHTML='<div class=\'photo-fallback\'>DM</div>'"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
             />
-            <div class="photo-overlay">
-              <div class="photo-id">
-                <span class="pid-dot"></span>
-                <span class="pid-name">Douglas Mwebi</span>
-                <span class="pid-role">Full-Stack Engineer</span>
+            <div class="photo-fallback">DM</div>
+            <div class="photo-caption">
+              <span class="cap-dot"></span>
+              <div>
+                <strong>Douglas Mwebi</strong>
+                <span>Full-Stack Engineer · Kisii, KE</span>
               </div>
             </div>
           </div>
           <div class="photo-glow"></div>
-          <div class="photo-border-anim"></div>
+          <div class="photo-border-spin"></div>
         </div>
-        <!-- floating chips -->
-        <div class="float-chip chip-1" data-anim="pop" data-delay="6">⚙️ Node.js</div>
-        <div class="float-chip chip-2" data-anim="pop" data-delay="7">💳 M-Pesa</div>
-        <div class="float-chip chip-3" data-anim="pop" data-delay="8">🛡️ Civic Tech</div>
+        <div class="float-chip fc-1" data-anim="pop" data-delay="6">⚙️ Node.js</div>
+        <div class="float-chip fc-2" data-anim="pop" data-delay="7">💳 M-Pesa</div>
+        <div class="float-chip fc-3" data-anim="pop" data-delay="8">🛡️ Civic Tech</div>
       </div>
-    </div>
 
-    <!-- scroll indicator -->
-    <div class="scroll-indicator">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
+    </div><!-- /hero-inner -->
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
       <span>Scroll</span>
     </div>
+
   </section>
 
-  <!-- ───── MARQUEE TICKER ───── -->
+  <!-- ───── TICKER ───── -->
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>Node.js</span><span class="t-sep">✦</span>
-      <span>Express.js</span><span class="t-sep">✦</span>
-      <span>React</span><span class="t-sep">✦</span>
-      <span>PostgreSQL</span><span class="t-sep">✦</span>
-      <span>M-Pesa Daraja</span><span class="t-sep">✦</span>
-      <span>Railway</span><span class="t-sep">✦</span>
-      <span>Anthropic AI</span><span class="t-sep">✦</span>
-      <span>MongoDB</span><span class="t-sep">✦</span>
-      <span>Socket.io</span><span class="t-sep">✦</span>
-      <span>JWT Auth</span><span class="t-sep">✦</span>
-      <span>KenyaWatch AI</span><span class="t-sep">✦</span>
-      <span>Pesa Grow</span><span class="t-sep">✦</span>
+      <span>Node.js</span><i>✦</i>
+      <span>Express.js</span><i>✦</i>
+      <span>React</span><i>✦</i>
+      <span>PostgreSQL</span><i>✦</i>
+      <span>M-Pesa Daraja</span><i>✦</i>
+      <span>Railway</span><i>✦</i>
+      <span>Anthropic AI</span><i>✦</i>
+      <span>MongoDB</span><i>✦</i>
+      <span>Socket.io</span><i>✦</i>
+      <span>JWT Auth</span><i>✦</i>
+      <span>KenyaWatch AI</span><i>✦</i>
+      <span>Pesa Grow</span><i>✦</i>
       <!-- duplicate for seamless loop -->
-      <span>Node.js</span><span class="t-sep">✦</span>
-      <span>Express.js</span><span class="t-sep">✦</span>
-      <span>React</span><span class="t-sep">✦</span>
-      <span>PostgreSQL</span><span class="t-sep">✦</span>
-      <span>M-Pesa Daraja</span><span class="t-sep">✦</span>
-      <span>Railway</span><span class="t-sep">✦</span>
-      <span>Anthropic AI</span><span class="t-sep">✦</span>
-      <span>MongoDB</span><span class="t-sep">✦</span>
-      <span>Socket.io</span><span class="t-sep">✦</span>
-      <span>JWT Auth</span><span class="t-sep">✦</span>
-      <span>KenyaWatch AI</span><span class="t-sep">✦</span>
-      <span>Pesa Grow</span><span class="t-sep">✦</span>
+      <span>Node.js</span><i>✦</i>
+      <span>Express.js</span><i>✦</i>
+      <span>React</span><i>✦</i>
+      <span>PostgreSQL</span><i>✦</i>
+      <span>M-Pesa Daraja</span><i>✦</i>
+      <span>Railway</span><i>✦</i>
+      <span>Anthropic AI</span><i>✦</i>
+      <span>MongoDB</span><i>✦</i>
+      <span>Socket.io</span><i>✦</i>
+      <span>JWT Auth</span><i>✦</i>
+      <span>KenyaWatch AI</span><i>✦</i>
+      <span>Pesa Grow</span><i>✦</i>
     </div>
   </div>
 
@@ -175,69 +180,50 @@
         <div class="about-photo-col" data-reveal>
           <div class="about-photo-wrap">
             <img src="/images/douglas.jpg" alt="Douglas Mwebi" class="about-photo"
-              onerror="this.style.display='none'; document.querySelector('.about-initials').style.display='flex'" />
+              onerror="this.style.display='none';document.querySelector('.about-initials').style.display='flex'" />
             <div class="about-initials">DM</div>
-            <div class="about-photo-ring"></div>
-            <div class="about-photo-ring ring-2"></div>
+            <div class="about-ring r1"></div>
+            <div class="about-ring r2"></div>
           </div>
           <div class="id-card">
-            <div class="idc-header">
+            <div class="idc-top">
               <span class="idc-brand">[DT] Daggy Techs</span>
               <span class="idc-badge">Engineer</span>
             </div>
-            <div class="idc-row">
-              <span class="idc-k">Name</span>
-              <span class="idc-v">Douglas Mwebi</span>
-            </div>
-            <div class="idc-row">
-              <span class="idc-k">Email</span>
-              <a href="mailto:mwebidouglas08@gmail.com" class="idc-v idc-link">mwebidouglas08@gmail.com</a>
-            </div>
-            <div class="idc-row">
-              <span class="idc-k">Phone</span>
-              <a href="tel:+254796820013" class="idc-v idc-link">+254 796 820 013</a>
-            </div>
-            <div class="idc-row">
-              <span class="idc-k">Location</span>
-              <span class="idc-v">Kisii, Kenya 🇰🇪</span>
-            </div>
-            <div class="idc-row">
-              <span class="idc-k">GitHub</span>
-              <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener" class="idc-v idc-link">mwebidouglas08-netizen</a>
-            </div>
-            <div class="idc-row">
-              <span class="idc-k">Study</span>
-              <span class="idc-v">B.Sc IT · Kisii University</span>
-            </div>
+            <div class="idc-row"><span class="ik">Name</span><span class="iv">Douglas Mwebi</span></div>
+            <div class="idc-row"><span class="ik">Email</span><a href="mailto:mwebidouglas08@gmail.com" class="iv iv-link">mwebidouglas08@gmail.com</a></div>
+            <div class="idc-row"><span class="ik">Phone</span><a href="tel:+254796820013" class="iv iv-link">+254 796 820 013</a></div>
+            <div class="idc-row"><span class="ik">Location</span><span class="iv">Kisii Town, Kenya 🇰🇪</span></div>
+            <div class="idc-row"><span class="ik">GitHub</span><a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener" class="iv iv-link">mwebidouglas08-netizen</a></div>
+            <div class="idc-row"><span class="ik">Study</span><span class="iv">B.Sc IT · Kisii University</span></div>
           </div>
         </div>
 
         <div class="about-text-col" data-reveal>
           <h2 class="sec-heading">Building the Web<br/>for East Africa.</h2>
-          <p class="about-p">
+          <p class="ap">
             I'm <strong>Douglas Mwebi</strong>, a full-stack software engineer and student at
             <strong>Kisii University</strong> pursuing a Bachelor's degree in Information Technology.
             I operate under the brand <strong>Daggy Techs</strong> and build real-world, deployable
             platforms that solve meaningful problems across East Africa and beyond.
           </p>
-          <p class="about-p">
+          <p class="ap">
             My technical focus spans Node.js/Express backends, PostgreSQL and MongoDB databases,
             React frontends, M-Pesa Daraja payment integration, and Railway/Render cloud deployment.
             I'm particularly passionate about <strong>civic tech</strong> and <strong>fintech</strong>
-            — applications that promote government transparency, fight corruption, and enable
-            economic participation.
+            — applications that promote transparency, fight corruption, and enable economic participation.
           </p>
-          <p class="about-p">
-            Beyond coding I'm genuinely curious — studying calculus, biology, cybersecurity, and
-            continuously sharpening my English communication skills. I believe great engineers
+          <p class="ap">
+            Beyond coding I'm genuinely curious — studying calculus, biology, and cybersecurity,
+            and continuously sharpening my English communication skills. I believe great engineers
             understand people as deeply as they understand systems.
           </p>
           <div class="chip-row">
-            <div class="chip">🔒 Security-First</div>
-            <div class="chip">🏦 Fintech</div>
-            <div class="chip">🏛️ Civic Tech</div>
-            <div class="chip">🇰🇪 Kenya-Built</div>
-            <div class="chip">📦 Ship-Ready Code</div>
+            <span class="chip">🔒 Security-First</span>
+            <span class="chip">🏦 Fintech</span>
+            <span class="chip">🏛️ Civic Tech</span>
+            <span class="chip">🇰🇪 Kenya-Built</span>
+            <span class="chip">📦 Ship-Ready Code</span>
           </div>
         </div>
 
@@ -251,91 +237,12 @@
       <div class="sec-label" data-reveal>02 / Skills</div>
       <h2 class="sec-heading centered" data-reveal>Technical Stack</h2>
       <div class="skills-grid">
-
-        <div class="skill-card" data-reveal>
-          <div class="sk-icon">⚙️</div>
-          <h3>Backend</h3>
-          <ul>
-            <li>Node.js / Express.js</li>
-            <li>REST API Design</li>
-            <li>JWT Authentication</li>
-            <li>Socket.io Real-time</li>
-            <li>Nodemailer / SMTP</li>
-            <li>Session Management</li>
-          </ul>
-          <div class="sk-line"></div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <div class="sk-icon">🎨</div>
-          <h3>Frontend</h3>
-          <ul>
-            <li>React / Vite</li>
-            <li>HTML5 / CSS3</li>
-            <li>Vanilla JS (ES6+)</li>
-            <li>Tailwind CSS</li>
-            <li>Responsive Design</li>
-            <li>UI/UX Principles</li>
-          </ul>
-          <div class="sk-line"></div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <div class="sk-icon">🗄️</div>
-          <h3>Databases</h3>
-          <ul>
-            <li>PostgreSQL</li>
-            <li>MongoDB</li>
-            <li>SQLite / sql.js</li>
-            <li>Schema Design</li>
-            <li>Query Optimization</li>
-            <li>Migrations</li>
-          </ul>
-          <div class="sk-line"></div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <div class="sk-icon">🚀</div>
-          <h3>DevOps & Deploy</h3>
-          <ul>
-            <li>Railway / Nixpacks</li>
-            <li>Render</li>
-            <li>GitHub / Git</li>
-            <li>CI/CD Pipelines</li>
-            <li>Env Management</li>
-            <li>Health Checks</li>
-          </ul>
-          <div class="sk-line"></div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <div class="sk-icon">💳</div>
-          <h3>Fintech / Kenya</h3>
-          <ul>
-            <li>M-Pesa Daraja API</li>
-            <li>STK Push / C2B</li>
-            <li>Transaction Flows</li>
-            <li>PPRA / OCDS Data</li>
-            <li>Fraud Detection</li>
-            <li>Procurement AI</li>
-          </ul>
-          <div class="sk-line"></div>
-        </div>
-
-        <div class="skill-card" data-reveal>
-          <div class="sk-icon">🔐</div>
-          <h3>Security</h3>
-          <ul>
-            <li>bcrypt / Hashing</li>
-            <li>Helmet.js / CORS</li>
-            <li>Rate Limiting</li>
-            <li>Input Validation</li>
-            <li>API Proxy Patterns</li>
-            <li>Secure Auth Flows</li>
-          </ul>
-          <div class="sk-line"></div>
-        </div>
-
+        <div class="skill-card" data-reveal><div class="sk-icon">⚙️</div><h3>Backend</h3><ul><li>Node.js / Express.js</li><li>REST API Design</li><li>JWT Authentication</li><li>Socket.io Real-time</li><li>Nodemailer / SMTP</li><li>Session Management</li></ul></div>
+        <div class="skill-card" data-reveal><div class="sk-icon">🎨</div><h3>Frontend</h3><ul><li>React / Vite</li><li>HTML5 / CSS3</li><li>Vanilla JS (ES6+)</li><li>Tailwind CSS</li><li>Responsive Design</li><li>UI/UX Principles</li></ul></div>
+        <div class="skill-card" data-reveal><div class="sk-icon">🗄️</div><h3>Databases</h3><ul><li>PostgreSQL</li><li>MongoDB</li><li>SQLite / sql.js</li><li>Schema Design</li><li>Query Optimization</li><li>Migrations</li></ul></div>
+        <div class="skill-card" data-reveal><div class="sk-icon">🚀</div><h3>DevOps & Deploy</h3><ul><li>Railway / Nixpacks</li><li>Render</li><li>GitHub / Git</li><li>CI/CD Pipelines</li><li>Env Management</li><li>Health Checks</li></ul></div>
+        <div class="skill-card" data-reveal><div class="sk-icon">💳</div><h3>Fintech / Kenya</h3><ul><li>M-Pesa Daraja API</li><li>STK Push / C2B</li><li>Transaction Flows</li><li>PPRA / OCDS Data</li><li>Fraud Detection</li><li>Procurement AI</li></ul></div>
+        <div class="skill-card" data-reveal><div class="sk-icon">🔐</div><h3>Security</h3><ul><li>bcrypt / Hashing</li><li>Helmet.js / CORS</li><li>Rate Limiting</li><li>Input Validation</li><li>API Proxy Patterns</li><li>Secure Auth Flows</li></ul></div>
       </div>
     </div>
   </section>
@@ -347,125 +254,58 @@
       <h2 class="sec-heading" data-reveal>Featured Work</h2>
       <div class="projects-grid">
 
-        <!-- FEATURED -->
         <div class="proj-card proj-featured" data-reveal>
-          <div class="proj-top-bar"></div>
+          <div class="proj-topbar"></div>
           <div class="proj-head">
-            <div class="proj-badges">
-              <span class="pbadge pbadge-live">● Live</span>
-              <span class="pbadge">Civic Tech</span>
-              <span class="pbadge">AI</span>
-            </div>
-            <a href="https://github.com/mwebidouglas08-netizen/Kenya-watch-final" target="_blank" rel="noopener" class="proj-gh" title="View on GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Civic Tech</span><span class="pb">AI</span></div>
+            <a href="https://github.com/mwebidouglas08-netizen/Kenya-watch-final" target="_blank" rel="noopener" class="proj-gh" title="GitHub">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
           </div>
           <div class="proj-num">01</div>
           <h3 class="proj-title">KenyaWatch AI</h3>
-          <p class="proj-desc">
-            Full-stack anti-corruption intelligence platform. AI-powered procurement fraud detection,
-            ghost project identification using 105,738+ real PPRA/OCDS government contracts across
-            47 counties, anonymous citizen reporting, EACC sector risk scoring, and a real-time
-            dashboard. Built with Node.js, PostgreSQL, and the Anthropic API.
-          </p>
-          <div class="proj-stack">
-            <span>Node.js</span><span>Express</span><span>PostgreSQL</span>
-            <span>Anthropic AI</span><span>PPRA/OCDS</span><span>Railway</span>
-          </div>
+          <p class="proj-desc">Full-stack anti-corruption intelligence platform. AI-powered procurement fraud detection, ghost project identification using 105,738+ real PPRA/OCDS government contracts across 47 counties, anonymous citizen reporting, EACC sector risk scoring, and a real-time dashboard. Built with Node.js, PostgreSQL, and the Anthropic API.</p>
+          <div class="proj-stack"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Anthropic AI</span><span>PPRA/OCDS</span><span>Railway</span></div>
         </div>
 
         <div class="proj-card" data-reveal>
-          <div class="proj-head">
-            <div class="proj-badges">
-              <span class="pbadge pbadge-live">● Live</span>
-              <span class="pbadge">Fintech</span>
-            </div>
-          </div>
+          <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Fintech</span></div></div>
           <div class="proj-num">02</div>
           <h3 class="proj-title">Pesa Grow</h3>
-          <p class="proj-desc">
-            Kenyan M-Pesa investment platform with STK Push, user auth, investment tracking,
-            and admin dashboard. Migrated from better-sqlite3 to sql.js to solve Railway
-            native addon build failures — ensuring reliable cloud deployment.
-          </p>
-          <div class="proj-stack">
-            <span>Node.js</span><span>M-Pesa Daraja</span><span>sql.js</span><span>Railway</span>
-          </div>
+          <p class="proj-desc">Kenyan M-Pesa investment platform with STK Push, user auth, investment tracking, and admin dashboard. Migrated from better-sqlite3 to sql.js to solve Railway native addon build failures.</p>
+          <div class="proj-stack"><span>Node.js</span><span>M-Pesa Daraja</span><span>sql.js</span><span>Railway</span></div>
         </div>
 
         <div class="proj-card" data-reveal>
-          <div class="proj-head">
-            <div class="proj-badges">
-              <span class="pbadge pbadge-live">● Live</span>
-              <span class="pbadge">Cybersecurity</span>
-            </div>
-          </div>
+          <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Cybersecurity</span></div></div>
           <div class="proj-num">03</div>
           <h3 class="proj-title">SafeNet AI</h3>
-          <p class="proj-desc">
-            AI-powered cybersecurity and fintech monitoring platform. React/Vite frontend,
-            Node.js/MongoDB backend, JWT auth, M-Pesa Daraja integration, and Socket.io
-            real-time threat alerts.
-          </p>
-          <div class="proj-stack">
-            <span>React</span><span>MongoDB</span><span>Socket.io</span><span>M-Pesa</span>
-          </div>
+          <p class="proj-desc">AI-powered cybersecurity and fintech monitoring platform. React/Vite frontend, Node.js/MongoDB backend, JWT auth, M-Pesa Daraja integration, and Socket.io real-time threat alerts.</p>
+          <div class="proj-stack"><span>React</span><span>MongoDB</span><span>Socket.io</span><span>M-Pesa</span></div>
         </div>
 
         <div class="proj-card" data-reveal>
-          <div class="proj-head">
-            <div class="proj-badges">
-              <span class="pbadge pbadge-live">● Live</span>
-              <span class="pbadge">AI</span>
-            </div>
-          </div>
+          <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">AI</span></div></div>
           <div class="proj-num">04</div>
           <h3 class="proj-title">AI Finance Guard</h3>
-          <p class="proj-desc">
-            Kenya-focused AI fraud detection platform. Securely proxies the Anthropic API
-            through a hardened Node.js backend to prevent CORS/key exposure. Delivers
-            real-time transaction risk assessments.
-          </p>
-          <div class="proj-stack">
-            <span>Node.js</span><span>Anthropic API</span><span>Security Proxy</span><span>Railway</span>
-          </div>
+          <p class="proj-desc">Kenya-focused AI fraud detection platform. Securely proxies the Anthropic API through a hardened Node.js backend to prevent CORS/key exposure. Real-time transaction risk assessments.</p>
+          <div class="proj-stack"><span>Node.js</span><span>Anthropic API</span><span>Security Proxy</span><span>Railway</span></div>
         </div>
 
         <div class="proj-card" data-reveal>
-          <div class="proj-head">
-            <div class="proj-badges">
-              <span class="pbadge pbadge-live">● Live</span>
-              <span class="pbadge">Media</span>
-            </div>
-          </div>
+          <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Media</span></div></div>
           <div class="proj-num">05</div>
           <h3 class="proj-title">Kenya045 Media Hub</h3>
-          <p class="proj-desc">
-            Photography, videography and drone services platform covering all 47 Kenyan counties.
-            Session auth, CRUD booking APIs, Gmail SMTP broadcast messaging, and a full admin panel.
-          </p>
-          <div class="proj-stack">
-            <span>Express.js</span><span>Nodemailer</span><span>Session Auth</span><span>Railway</span>
-          </div>
+          <p class="proj-desc">Photography, videography and drone services platform covering all 47 Kenyan counties. Session auth, CRUD booking APIs, Gmail SMTP broadcast messaging, and a full admin panel.</p>
+          <div class="proj-stack"><span>Express.js</span><span>Nodemailer</span><span>Session Auth</span><span>Railway</span></div>
         </div>
 
         <div class="proj-card" data-reveal>
-          <div class="proj-head">
-            <div class="proj-badges">
-              <span class="pbadge">Networking</span>
-              <span class="pbadge">Fintech</span>
-            </div>
-          </div>
+          <div class="proj-head"><div class="proj-badges"><span class="pb">Networking</span><span class="pb">Fintech</span></div></div>
           <div class="proj-num">06</div>
           <h3 class="proj-title">DaggyNet</h3>
-          <p class="proj-desc">
-            WiFi captive portal and hotspot management system with M-Pesa billing integration.
-            Debugged SVG click-blocking overlays, Railway healthcheck failures, and real-time
-            session management for connected clients.
-          </p>
-          <div class="proj-stack">
-            <span>Node.js</span><span>M-Pesa</span><span>Captive Portal</span><span>Railway</span>
-          </div>
+          <p class="proj-desc">WiFi captive portal and hotspot management system with M-Pesa billing integration. Debugged SVG click-blocking overlays, Railway healthcheck failures, and real-time session management.</p>
+          <div class="proj-stack"><span>Node.js</span><span>M-Pesa</span><span>Captive Portal</span><span>Railway</span></div>
         </div>
 
       </div>
@@ -480,46 +320,23 @@
 
         <div class="contact-left" data-reveal>
           <h2 class="sec-heading">Let's Build<br/>Something Real.</h2>
-          <p class="contact-sub">
-            Need a developer who ships production-ready code and understands
-            the Kenyan tech landscape? Let's talk.
-          </p>
+          <p class="contact-sub">Need a developer who ships production-ready code and understands the Kenyan tech landscape? Let's talk.</p>
           <div class="cinfo-list">
             <a href="mailto:mwebidouglas08@gmail.com" class="cinfo-row">
-              <div class="cinfo-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <span class="cinfo-label">Email</span>
-                <span class="cinfo-val">mwebidouglas08@gmail.com</span>
-              </div>
+              <div class="cinfo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div><span class="ci-k">Email</span><span class="ci-v">mwebidouglas08@gmail.com</span></div>
             </a>
             <a href="tel:+254796820013" class="cinfo-row">
-              <div class="cinfo-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div>
-                <span class="cinfo-label">Phone</span>
-                <span class="cinfo-val">+254 796 820 013</span>
-              </div>
+              <div class="cinfo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div><span class="ci-k">Phone</span><span class="ci-v">+254 796 820 013</span></div>
             </a>
             <div class="cinfo-row">
-              <div class="cinfo-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <span class="cinfo-label">Location</span>
-                <span class="cinfo-val">Kisii Town, Kenya</span>
-              </div>
+              <div class="cinfo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div><span class="ci-k">Location</span><span class="ci-v">Kisii Town, Kenya</span></div>
             </div>
             <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener" class="cinfo-row">
-              <div class="cinfo-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </div>
-              <div>
-                <span class="cinfo-label">GitHub</span>
-                <span class="cinfo-val">mwebidouglas08-netizen</span>
-              </div>
+              <div class="cinfo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
+              <div><span class="ci-k">GitHub</span><span class="ci-v">mwebidouglas08-netizen</span></div>
             </a>
           </div>
         </div>
@@ -527,29 +344,17 @@
         <div class="contact-right" data-reveal>
           <form class="cform" id="contactForm" novalidate>
             <div class="cform-row">
-              <div class="cform-group">
-                <label for="fname">Name</label>
-                <input type="text" id="fname" name="name" placeholder="Your full name" required />
-              </div>
-              <div class="cform-group">
-                <label for="femail">Email</label>
-                <input type="email" id="femail" name="email" placeholder="you@example.com" required />
-              </div>
+              <div class="cform-group"><label for="fname">Name</label><input type="text" id="fname" name="name" placeholder="Your full name" required /></div>
+              <div class="cform-group"><label for="femail">Email</label><input type="email" id="femail" name="email" placeholder="you@example.com" required /></div>
             </div>
-            <div class="cform-group">
-              <label for="fsubject">Subject</label>
-              <input type="text" id="fsubject" name="subject" placeholder="Project inquiry / Collaboration / Other" required />
-            </div>
-            <div class="cform-group">
-              <label for="fmessage">Message</label>
-              <textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-            </div>
-            <button type="submit" class="cform-submit" id="submitBtn">
+            <div class="cform-group"><label for="fsubject">Subject</label><input type="text" id="fsubject" name="subject" placeholder="Project inquiry / Collaboration / Other" required /></div>
+            <div class="cform-group"><label for="fmessage">Message</label><textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+            <button type="submit" class="cform-btn" id="submitBtn">
               <span class="sb-text">Send Message</span>
               <span class="sb-load" hidden>Sending…</span>
-              <svg class="sb-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg class="sb-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
-            <div class="cform-feedback" id="formFeedback" hidden></div>
+            <div class="cform-fb" id="formFeedback" hidden></div>
           </form>
         </div>
 
