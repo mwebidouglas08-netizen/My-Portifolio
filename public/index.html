@@ -103,32 +103,32 @@
 
       </div>
 
-      <!-- RIGHT: photo card -->
-      <div class="hero-right" data-anim="fade-left" data-delay="2">
-        <div class="photo-wrap">
-          <div class="photo-frame">
-            <img
-              src="/images/douglas.jpg"
-              alt="Douglas Mwebi"
-              class="photo-img"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-            />
-            <div class="photo-fallback">DM</div>
-            <div class="photo-caption">
-              <span class="cap-dot"></span>
-              <div>
-                <strong>Douglas Mwebi</strong>
-                <span>Full-Stack Engineer · Kisii, KE</span>
-              </div>
-            </div>
-          </div>
-          <div class="photo-glow"></div>
-          <div class="photo-border-spin"></div>
+    <!-- RIGHT: photo card -->
+<div class="hero-right" data-anim="fade-left" data-delay="2">
+  <div class="photo-wrap">
+    <div class="photo-frame">
+      <img
+        src="/images/douglas.jpg"
+        alt="Douglas Mwebi"
+        class="photo-img"
+        id="heroPhoto"
+      />
+      <div class="photo-fallback" id="heroFallback" style="display:none">DM</div>
+      <div class="photo-caption">
+        <span class="cap-dot"></span>
+        <div>
+          <strong>Douglas Mwebi</strong>
+          <span>Full-Stack Engineer · Kisii, KE</span>
         </div>
-        <div class="float-chip fc-1" data-anim="pop" data-delay="6">⚙️ Node.js</div>
-        <div class="float-chip fc-2" data-anim="pop" data-delay="7">💳 M-Pesa</div>
-        <div class="float-chip fc-3" data-anim="pop" data-delay="8">🛡️ Civic Tech</div>
       </div>
+    </div>
+    <div class="photo-glow"></div>
+    <div class="photo-border-spin"></div>
+  </div>
+  <div class="float-chip fc-1" data-anim="pop" data-delay="6">⚙️ Node.js</div>
+  <div class="float-chip fc-2" data-anim="pop" data-delay="7">💳 M-Pesa</div>
+  <div class="float-chip fc-3" data-anim="pop" data-delay="8">🛡️ Civic Tech</div>
+</div>
 
     </div><!-- /hero-inner -->
 
@@ -178,13 +178,12 @@
       <div class="about-grid">
 
         <div class="about-photo-col" data-reveal>
-          <div class="about-photo-wrap">
-            <img src="/images/douglas.jpg" alt="Douglas Mwebi" class="about-photo"
-              onerror="this.style.display='none';document.querySelector('.about-initials').style.display='flex'" />
-            <div class="about-initials">DM</div>
-            <div class="about-ring r1"></div>
-            <div class="about-ring r2"></div>
-          </div>
+         <div class="about-photo-wrap">
+  <img src="/images/douglas.jpg" alt="Douglas Mwebi" class="about-photo" id="aboutPhoto" />
+  <div class="about-initials" id="aboutInitials" style="display:none">DM</div>
+  <div class="about-ring r1"></div>
+  <div class="about-ring r2"></div>
+</div>
           <div class="id-card">
             <div class="idc-top">
               <span class="idc-brand">[DT] Daggy Techs</span>
