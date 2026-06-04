@@ -2,6 +2,35 @@
    DAGGY TECHS — Portfolio JS v3
    ══════════════════════════════════════════════ */
 
+// ── Photo load error handling ──
+window.addEventListener('DOMContentLoaded', () => {
+  const heroPhoto    = document.getElementById('heroPhoto');
+  const heroFallback = document.getElementById('heroFallback');
+  const aboutPhoto   = document.getElementById('aboutPhoto');
+  const aboutInitials= document.getElementById('aboutInitials');
+
+  if (heroPhoto) {
+    heroPhoto.addEventListener('error', () => {
+      heroPhoto.style.display = 'none';
+      if (heroFallback) heroFallback.style.display = 'flex';
+    });
+    // If already errored before DOMContentLoaded (cached failure)
+    if (!heroPhoto.complete || heroPhoto.naturalWidth === 0) {
+      heroPhoto.dispatchEvent(new Event('error'));
+    }
+  }
+
+  if (aboutPhoto) {
+    aboutPhoto.addEventListener('error', () => {
+      aboutPhoto.style.display = 'none';
+      if (aboutInitials) aboutInitials.style.display = 'flex';
+    });
+    if (!aboutPhoto.complete || aboutPhoto.naturalWidth === 0) {
+      aboutPhoto.dispatchEvent(new Event('error'));
+    }
+  }
+});
+
 // ── Nav scroll ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -17,7 +46,6 @@ document.querySelectorAll('.mobile-link, .mobile-cta').forEach(l =>
 );
 
 // ── Hero entry animations ──
-const animMap = { 'fade-up': 'none', 'fade-left': 'none', 'pop': 'none' };
 document.querySelectorAll('[data-anim]').forEach(el => {
   const delay = parseFloat(el.dataset.delay || 0) * 0.12;
   setTimeout(() => el.classList.add('go'), delay * 1000);
@@ -78,9 +106,9 @@ const yr = document.getElementById('yr');
 if (yr) yr.textContent = new Date().getFullYear();
 
 // ── Contact form ──
-const form     = document.getElementById('contactForm');
-const submitBtn= document.getElementById('submitBtn');
-const fbEl     = document.getElementById('formFeedback');
+const form      = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const fbEl      = document.getElementById('formFeedback');
 
 if (form) {
   form.addEventListener('submit', async e => {
