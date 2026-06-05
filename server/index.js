@@ -9,223 +9,207 @@ const cors       = require('cors');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-/* ── Security middleware ── */
+/* ─── Middleware ─── */
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
-      defaultSrc:  ["'self'"],
-      styleSrc:    ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc:     ["'self'", "https://fonts.gstatic.com"],
-      scriptSrc:   ["'self'", "'unsafe-inline'"],
-      imgSrc:      ["'self'", "data:", "https:"],
-      connectSrc:  ["'self'"]
+      defaultSrc: ["'self'"],
+      styleSrc:   ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc:    ["'self'", "https://fonts.gstatic.com"],
+      scriptSrc:  ["'self'", "'unsafe-inline'"],
+      imgSrc:     ["'self'", "data:", "https:"],
+      connectSrc: ["'self'"]
     }
   }
 }));
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(express.static(path.join(__dirname, '../public')));
 
-/* ── Rate limit: max 5 contact submissions per 15 min per IP ── */
-const contactLimiter = rateLimit({
+/* ─── Rate limiter ─── */
+const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 5,
-  message: { success: false, message: 'Too many messages sent. Please try again in 15 minutes.' }
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Too many messages. Please try again in 15 minutes.' }
 });
 
-/* ── Serve portfolio ── */
-app.get('/', (req, res) => {
+/* ─── HTML escape ─── */
+function esc(s) {
+  return String(s || '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+
+/* ─── Promise with timeout wrapper ─── */
+function withTimeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms)
+    )
+  ]);
+}
+
+/* ─── Serve portfolio ─── */
+app.get('/', (_req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-/* ══════════════════════════════════════════
-   CONTACT FORM ENDPOINT
-══════════════════════════════════════════ */
-app.post('/api/contact', contactLimiter, async (req, res) => {
-  const { name, email, subject, message } = req.body;
+/* ══════════════════════════════════════════════
+   POST /api/contact
+══════════════════════════════════════════════ */
+app.post('/api/contact', limiter, async (req, res) => {
 
-  /* ── Validate fields ── */
+  /* 1 ── Parse & validate ── */
+  const name    = (req.body.name    || '').trim();
+  const email   = (req.body.email   || '').trim();
+  const subject = (req.body.subject || '').trim();
+  const message = (req.body.message || '').trim();
+
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ success: false, message: 'All fields are required.' });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return res.status(400).json({ success: false, message: 'Please enter a valid email address.' });
-  }
-  if (name.length > 100 || subject.length > 200 || message.length > 5000) {
-    return res.status(400).json({ success: false, message: 'Input exceeds allowed length.' });
+    return res.status(400).json({ success: false, message: 'Invalid email address.' });
   }
 
-  const EMAIL_USER = process.env.EMAIL_USER;
-  const EMAIL_PASS = process.env.EMAIL_PASS;
-  const TO_EMAIL   = process.env.TO_EMAIL || EMAIL_USER;
+  /* 2 ── Always log to console (visible in Render dashboard) ── */
+  console.log('\n=========================================');
+  console.log('📩  NEW PORTFOLIO CONTACT MESSAGE');
+  console.log('=========================================');
+  console.log('Name    :', name);
+  console.log('Email   :', email);
+  console.log('Subject :', subject);
+  console.log('Message :', message);
+  console.log('Time    :', new Date().toUTCString());
+  console.log('=========================================\n');
 
-  /* ── Log every submission to console (always works) ── */
-  console.log('==============================');
-  console.log('📩 NEW CONTACT FORM SUBMISSION');
-  console.log('==============================');
-  console.log(`From:    ${name} <${email}>`);
-  console.log(`Subject: ${subject}`);
-  console.log(`Message: ${message}`);
-  console.log(`Time:    ${new Date().toISOString()}`);
-  console.log('==============================');
+  /* 3 ── Check env credentials ── */
+  const EMAIL_USER = (process.env.EMAIL_USER || '').trim();
+  const EMAIL_PASS = (process.env.EMAIL_PASS || '').trim();
+  const TO_EMAIL   = (process.env.TO_EMAIL   || EMAIL_USER).trim();
 
-  /* ── If no credentials set, still return success + log ── */
-  if (!EMAIL_USER || !EMAIL_PASS) {
-    console.warn('⚠️  EMAIL_USER / EMAIL_PASS not set in .env — message logged only.');
+  const credsSet = EMAIL_USER && EMAIL_PASS &&
+    !EMAIL_PASS.includes('your_') &&
+    !EMAIL_PASS.includes('app_password') &&
+    EMAIL_PASS.length >= 16;
+
+  if (!credsSet) {
+    console.warn('⚠️  Email credentials not configured — message logged only.');
     return res.json({
       success: true,
-      message: 'Message received! I will get back to you shortly.'
+      message: 'Message received! I will get back to you within 24 hours.'
     });
   }
 
-  /* ── Create Gmail transporter ── */
+  /* 4 ── Build transporter (NO verify call — it hangs on some hosts) ── */
   const transporter = nodemailer.createTransport({
     host:   'smtp.gmail.com',
     port:   587,
-    secure: false,           // STARTTLS
-    auth: {
-      user: EMAIL_USER,
-      pass: EMAIL_PASS       // Must be a Gmail App Password (16 chars, no spaces)
-    },
-    tls: {
-      rejectUnauthorized: false
-    }
+    secure: false,
+    auth:   { user: EMAIL_USER, pass: EMAIL_PASS },
+    tls:    { rejectUnauthorized: false },
+    connectionTimeout: 10000,
+    greetingTimeout:   10000,
+    socketTimeout:     15000
   });
 
-  /* ── Verify SMTP connection before sending ── */
-  try {
-    await transporter.verify();
-  } catch (verifyErr) {
-    console.error('❌ SMTP verify failed:', verifyErr.message);
-    return res.status(500).json({
-      success: false,
-      message: 'Email service is currently unavailable. Please contact me directly at mwebidouglas08@gmail.com'
-    });
-  }
-
-  /* ── Build email ── */
-  const htmlBody = `
-    <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0c0c14;color:#e0e0f0;border-radius:12px;overflow:hidden;border:1px solid #2c2c48;">
-      <!-- Header -->
-      <div style="background:linear-gradient(135deg,#12121e,#1a1a2e);padding:28px 32px;border-bottom:1px solid #2c2c48;">
-        <p style="font-family:'Courier New',monospace;font-size:0.75rem;color:#5eead4;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 6px;">[DT] Daggy Techs Portfolio</p>
-        <h2 style="margin:0;font-size:1.4rem;color:#eeeeff;">New Contact Message</h2>
-      </div>
-      <!-- Body -->
-      <div style="padding:28px 32px;">
-        <table style="width:100%;border-collapse:collapse;">
-          <tr>
-            <td style="padding:10px 0;border-bottom:1px solid #1e1e30;font-family:'Courier New',monospace;font-size:0.72rem;color:#50506a;text-transform:uppercase;letter-spacing:0.1em;width:90px;">From</td>
-            <td style="padding:10px 0;border-bottom:1px solid #1e1e30;color:#eeeeff;font-size:0.95rem;">${escapeHtml(name)}</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 0;border-bottom:1px solid #1e1e30;font-family:'Courier New',monospace;font-size:0.72rem;color:#50506a;text-transform:uppercase;letter-spacing:0.1em;">Email</td>
-            <td style="padding:10px 0;border-bottom:1px solid #1e1e30;color:#5eead4;font-size:0.95rem;"><a href="mailto:${escapeHtml(email)}" style="color:#5eead4;">${escapeHtml(email)}</a></td>
-          </tr>
-          <tr>
-            <td style="padding:10px 0;border-bottom:1px solid #1e1e30;font-family:'Courier New',monospace;font-size:0.72rem;color:#50506a;text-transform:uppercase;letter-spacing:0.1em;">Subject</td>
-            <td style="padding:10px 0;border-bottom:1px solid #1e1e30;color:#eeeeff;font-size:0.95rem;">${escapeHtml(subject)}</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 0;font-family:'Courier New',monospace;font-size:0.72rem;color:#50506a;text-transform:uppercase;letter-spacing:0.1em;vertical-align:top;padding-top:16px;">Message</td>
-            <td style="padding:16px 0;color:#c0c0de;font-size:0.95rem;line-height:1.75;">${escapeHtml(message).replace(/\n/g, '<br/>')}</td>
-          </tr>
-        </table>
-      </div>
-      <!-- Footer -->
-      <div style="padding:16px 32px;background:#06060a;border-top:1px solid #1e1e30;">
-        <p style="margin:0;font-family:'Courier New',monospace;font-size:0.7rem;color:#50506a;">
-          Sent via daggy-portfolio · ${new Date().toUTCString()}
-        </p>
-      </div>
-    </div>
-  `;
-
-  /* ── Send to you ── */
-  const mailToYou = {
-    from:    `"Daggy Techs Portfolio" <${EMAIL_USER}>`,
+  /* 5 ── Build emails ── */
+  const toOwner = {
+    from:    `"Daggy Portfolio" <${EMAIL_USER}>`,
     to:      TO_EMAIL,
     replyTo: `"${name}" <${email}>`,
     subject: `[Portfolio] ${subject} — from ${name}`,
-    html:    htmlBody,
-    text:    `New portfolio contact\n\nFrom: ${name} <${email}>\nSubject: ${subject}\n\n${message}`
+    text:    `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:580px;background:#0c0c14;color:#e0e0f0;border-radius:10px;border:1px solid #2c2c48;overflow:hidden;">
+  <div style="background:#12121e;padding:22px 26px;border-bottom:1px solid #2c2c48;">
+    <p style="font-family:monospace;font-size:11px;color:#5eead4;letter-spacing:2px;text-transform:uppercase;margin:0 0 5px">[DT] Daggy Techs Portfolio</p>
+    <h2 style="margin:0;color:#eeeeff;font-size:19px;">New Contact Message</h2>
+  </div>
+  <div style="padding:22px 26px;">
+    <table style="width:100%;border-collapse:collapse;">
+      <tr><td style="padding:8px 0;border-bottom:1px solid #1e1e30;font-family:monospace;font-size:11px;color:#50506a;text-transform:uppercase;width:80px">From</td><td style="padding:8px 0;border-bottom:1px solid #1e1e30;color:#eeeeff">${esc(name)}</td></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid #1e1e30;font-family:monospace;font-size:11px;color:#50506a;text-transform:uppercase">Email</td><td style="padding:8px 0;border-bottom:1px solid #1e1e30"><a href="mailto:${esc(email)}" style="color:#5eead4">${esc(email)}</a></td></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid #1e1e30;font-family:monospace;font-size:11px;color:#50506a;text-transform:uppercase">Subject</td><td style="padding:8px 0;border-bottom:1px solid #1e1e30;color:#eeeeff">${esc(subject)}</td></tr>
+      <tr><td style="padding:14px 0;font-family:monospace;font-size:11px;color:#50506a;text-transform:uppercase;vertical-align:top">Message</td><td style="padding:14px 0;color:#c0c0de;line-height:1.7">${esc(message).replace(/\n/g,'<br>')}</td></tr>
+    </table>
+  </div>
+  <div style="padding:12px 26px;background:#06060a;border-top:1px solid #1e1e30;">
+    <p style="margin:0;font-family:monospace;font-size:10px;color:#50506a">Sent via daggy-portfolio · ${new Date().toUTCString()}</p>
+  </div>
+</div>`
   };
 
-  /* ── Auto-reply to sender ── */
   const autoReply = {
     from:    `"Douglas Mwebi | Daggy Techs" <${EMAIL_USER}>`,
     to:      `"${name}" <${email}>`,
     subject: `Got your message — I'll be in touch soon`,
-    html: `
-      <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:560px;margin:0 auto;background:#0c0c14;color:#e0e0f0;border-radius:12px;overflow:hidden;border:1px solid #2c2c48;">
-        <div style="background:linear-gradient(135deg,#12121e,#1a1a2e);padding:24px 28px;border-bottom:1px solid #2c2c48;">
-          <p style="font-family:'Courier New',monospace;font-size:0.72rem;color:#5eead4;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 5px;">[DT] Daggy Techs</p>
-          <h2 style="margin:0;font-size:1.25rem;color:#eeeeff;">Thanks for reaching out, ${escapeHtml(name)}!</h2>
-        </div>
-        <div style="padding:24px 28px;line-height:1.75;color:#c0c0de;font-size:0.95rem;">
-          <p>I've received your message and will get back to you as soon as possible — usually within 24 hours.</p>
-          <p style="margin-top:16px;">In the meantime, feel free to check out my work on GitHub:</p>
-          <p style="margin-top:8px;"><a href="https://github.com/mwebidouglas08-netizen" style="color:#5eead4;">github.com/mwebidouglas08-netizen</a></p>
-          <hr style="border:none;border-top:1px solid #1e1e30;margin:24px 0;"/>
-          <p style="font-size:0.85rem;color:#50506a;">Douglas Mwebi · Full-Stack Engineer · Kisii, Kenya<br/>
-          <a href="mailto:mwebidouglas08@gmail.com" style="color:#5eead4;">mwebidouglas08@gmail.com</a></p>
-        </div>
-      </div>
-    `,
-    text: `Hi ${name},\n\nThanks for reaching out! I received your message and will reply within 24 hours.\n\nDouglas Mwebi\nFull-Stack Engineer · Daggy Techs\nmwebidouglas08@gmail.com`
+    text:    `Hi ${name},\n\nThanks for reaching out! I received your message and will reply within 24 hours.\n\nDouglas Mwebi\nFull-Stack Engineer · Daggy Techs\nmwebidouglas08@gmail.com`,
+    html: `<div style="font-family:Arial,sans-serif;max-width:540px;background:#0c0c14;color:#e0e0f0;border-radius:10px;border:1px solid #2c2c48;overflow:hidden;">
+  <div style="background:#12121e;padding:22px 26px;border-bottom:1px solid #2c2c48;">
+    <p style="font-family:monospace;font-size:11px;color:#5eead4;letter-spacing:2px;text-transform:uppercase;margin:0 0 5px">[DT] Daggy Techs</p>
+    <h2 style="margin:0;color:#eeeeff;font-size:17px;">Thanks for reaching out, ${esc(name)}!</h2>
+  </div>
+  <div style="padding:22px 26px;color:#c0c0de;line-height:1.75;font-size:15px;">
+    <p>I've received your message and will get back to you within 24 hours.</p>
+    <p style="margin-top:14px">Check out my work on GitHub:</p>
+    <p style="margin-top:6px"><a href="https://github.com/mwebidouglas08-netizen" style="color:#5eead4">github.com/mwebidouglas08-netizen</a></p>
+    <hr style="border:none;border-top:1px solid #1e1e30;margin:20px 0"/>
+    <p style="font-size:13px;color:#50506a">Douglas Mwebi · Full-Stack Engineer · Kisii, Kenya<br>
+    <a href="mailto:mwebidouglas08@gmail.com" style="color:#5eead4">mwebidouglas08@gmail.com</a></p>
+  </div>
+</div>`
   };
 
+  /* 6 ── Send notification to Douglas (with timeout) ── */
   try {
-    await transporter.sendMail(mailToYou);
-    console.log(`✅ Email delivered to ${TO_EMAIL}`);
-
-    /* Auto-reply — don't fail the whole request if this errors */
-    try {
-      await transporter.sendMail(autoReply);
-      console.log(`✅ Auto-reply sent to ${email}`);
-    } catch (replyErr) {
-      console.warn('⚠️  Auto-reply failed (non-critical):', replyErr.message);
-    }
-
-    return res.json({
-      success: true,
-      message: 'Message sent! Check your inbox — I\'ve also sent you a confirmation.'
-    });
-
-  } catch (sendErr) {
-    console.error('❌ Send failed:', sendErr.message);
-    console.error('   Code:', sendErr.code);
+    await withTimeout(transporter.sendMail(toOwner), 15000);
+    console.log(`✅ Notification sent → ${TO_EMAIL}`);
+  } catch (err) {
+    console.error('❌ Notification send failed:', err.message);
     return res.status(500).json({
       success: false,
-      message: `Failed to send. Please email me directly at mwebidouglas08@gmail.com`
+      message: 'Could not send your message right now. Please email mwebidouglas08@gmail.com directly.'
     });
   }
+
+  /* 7 ── Send auto-reply (non-critical — don't fail request) ── */
+  withTimeout(transporter.sendMail(autoReply), 10000)
+    .then(() => console.log(`✅ Auto-reply sent → ${email}`))
+    .catch(err => console.warn('⚠️  Auto-reply failed (non-critical):', err.message));
+
+  return res.json({
+    success: true,
+    message: "Message sent! I'll get back to you within 24 hours. Check your inbox for a confirmation."
+  });
 });
 
-/* ── Health check ── */
-app.get('/health', (req, res) => {
+/* ─── Health check ─── */
+app.get('/health', (_req, res) => {
   res.json({
     status: 'ok',
-    email_configured: !!(process.env.EMAIL_USER && process.env.EMAIL_PASS),
+    email_configured: !!(process.env.EMAIL_USER && process.env.EMAIL_PASS &&
+      !String(process.env.EMAIL_PASS).includes('your_')),
     timestamp: new Date().toISOString()
   });
 });
 
-/* ── Utility: escape HTML ── */
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
+/* ─── 404 → portfolio ─── */
+app.use((_req, res) => {
+  res.status(404).sendFile(path.join(__dirname, '../public/index.html'));
+});
 
+/* ─── Start ─── */
 app.listen(PORT, () => {
-  console.log(`🚀 Daggy Portfolio running on http://localhost:${PORT}`);
-  console.log(`📧 Email configured: ${!!(process.env.EMAIL_USER && process.env.EMAIL_PASS)}`);
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.warn('⚠️  Set EMAIL_USER and EMAIL_PASS in your .env to enable email delivery');
+  const emailOk = process.env.EMAIL_USER && process.env.EMAIL_PASS &&
+    !String(process.env.EMAIL_PASS).includes('your_');
+  console.log(`\n🚀  Daggy Portfolio → http://localhost:${PORT}`);
+  console.log(`📧  Email configured: ${!!emailOk}`);
+  if (!emailOk) {
+    console.warn('⚠️   Set EMAIL_USER + EMAIL_PASS in .env to enable email sending');
+    console.warn('⚠️   Get App Password at: https://myaccount.google.com/apppasswords\n');
   }
 });
