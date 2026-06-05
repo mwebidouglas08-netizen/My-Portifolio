@@ -122,18 +122,18 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    /* Read by name attribute — works on all browsers, no ID dependency */
+    /* Read fields by name attribute — most reliable method */
     var nameVal    = (form.elements['name']    ? form.elements['name'].value    : '').trim();
     var emailVal   = (form.elements['email']   ? form.elements['email'].value   : '').trim();
     var subjectVal = (form.elements['subject'] ? form.elements['subject'].value : '').trim();
     var messageVal = (form.elements['message'] ? form.elements['message'].value : '').trim();
 
+    /* Show/hide helpers */
     function showFeedback(type, msg) {
       fbEl.hidden = false;
       fbEl.className = 'cform-fb ' + type;
       fbEl.textContent = msg;
     }
-
     function setLoading(on) {
       var sbText = submitBtn.querySelector('.sb-text');
       var sbLoad = submitBtn.querySelector('.sb-load');
@@ -144,12 +144,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (sbArr)  sbArr.hidden  = on;
     }
 
-    /* Reset */
+    /* Reset feedback */
     fbEl.hidden = true;
     fbEl.className = 'cform-fb';
     fbEl.textContent = '';
 
-    /* Validate one field at a time with specific messages */
+    /* Validate */
     if (!nameVal) {
       showFeedback('err', '✗ Please enter your name.');
       return;
@@ -167,11 +167,11 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     if (!messageVal) {
-      showFeedback('err', '✗ Please write your message.');
+      showFeedback('err', '✗ Please enter your message.');
       return;
     }
 
-    /* All valid — send */
+    /* Send */
     setLoading(true);
 
     var controller = new AbortController();
@@ -191,8 +191,11 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(function (res) {
       clearTimeout(tid);
       return res.text().then(function (text) {
-        try { return JSON.parse(text); }
-        catch (_) { throw new Error('server_error_' + res.status); }
+        try {
+          return JSON.parse(text);
+        } catch (_) {
+          throw new Error('server_error_' + res.status);
+        }
       });
     })
     .then(function (json) {
@@ -205,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(function (err) {
       clearTimeout(tid);
-      console.error('Contact form error:', err.name, err.message);
+      console.error('Contact form error:', err.message);
       if (err.name === 'AbortError') {
         showFeedback('err', '✗ Request timed out. Please try again.');
       } else if (err.message.indexOf('server_error') === 0) {
