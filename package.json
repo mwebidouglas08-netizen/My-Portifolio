@@ -1,7 +1,7 @@
 {
   "name": "daggy-portfolio",
-  "version": "1.0.0",
-  "description": "Douglas Mwebi | Daggy Techs - Full-Stack Engineer Portfolio",
+  "version": "2.0.0",
+  "description": "Douglas Mwebi | Daggy Techs - Premium Full-Stack Engineer Portfolio",
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
