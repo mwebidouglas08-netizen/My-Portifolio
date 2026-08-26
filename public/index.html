@@ -3,73 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Douglas Mwebi | Full-Stack Engineer · Blockchain · AI</title>
-  <meta name="description" content="Douglas Mwebi — Senior full-stack engineer specializing in blockchain, Web3, AI, fintech, and civic tech solutions." />
-  <meta name="theme-color" content="#0a0a0f" />
+  <title>Douglas Mwebi | Blockchain · Web3 · AI Engineer</title>
+  <meta name="description" content="Senior full-stack engineer specializing in blockchain, Web3, AI, and fintech solutions." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  
   <div class="bg-container">
     <div class="gradient-orb orb-1"></div>
     <div class="gradient-orb orb-2"></div>
     <div class="gradient-orb orb-3"></div>
+    <div class="particles" id="particles"></div>
     <div class="grid-overlay"></div>
     <div class="noise-overlay"></div>
   </div>
 
-  <header class="nav glass" id="nav" role="banner">
+  <header class="nav glass" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo"><span class="logo-bracket">[</span>DT<span class="logo-bracket">]</span></a>
-      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <nav class="nav-links">
         <a href="#about" data-nav>About</a>
         <a href="#expertise" data-nav>Expertise</a>
         <a href="#projects" data-nav>Projects</a>
         <a href="#web3" data-nav>Web3</a>
-        <a href="#achievements" data-nav>Impact</a>
         <a href="#contact" data-nav>Contact</a>
       </nav>
-      <a href="#contact" class="nav-cta magnetic-btn"><span>Let's Talk</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="#contact" class="nav-cta magnetic-btn">Let's Talk →</a>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
     </div>
     <div class="nav-mobile glass" id="navMobile">
       <a href="#about" class="mobile-link">About</a>
       <a href="#expertise" class="mobile-link">Expertise</a>
       <a href="#projects" class="mobile-link">Projects</a>
       <a href="#web3" class="mobile-link">Web3</a>
-      <a href="#achievements" class="mobile-link">Impact</a>
       <a href="#contact" class="mobile-link">Contact</a>
-      <a href="#contact" class="mobile-cta">Let's Talk →</a>
     </div>
   </header>
 
-  <main id="main-content">
+  <main>
     <section class="hero" id="hero">
       <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1639762681485-074b7f69080d?w=1920&q=80&auto=format&fit=crop" alt="" class="hero-bg-img" loading="eager" decoding="async" />
+        <img src="https://images.unsplash.com/photo-1639762681485-074b7f69080d?w=1920&q=90&auto=format&fit=crop" 
+             alt="" class="hero-bg-img" loading="eager" decoding="async" />
         <div class="hero-bg-overlay"></div>
+        <div class="hero-shine"></div>
       </div>
+      
       <div class="container hero-container">
         <div class="hero-content">
-          <div class="hero-badge" data-reveal><span class="pulse-dot"></span><span>Available for innovative projects</span></div>
-          <h1 class="hero-title" data-reveal>Building the <br /><span class="text-gradient">Decentralized Future</span></h1>
-          <p class="hero-subtitle" data-reveal>Senior Full-Stack Engineer specializing in <strong>blockchain</strong>, <strong>Web3</strong>, <strong>AI</strong>, and <strong>fintech</strong>. Creating innovative solutions that bridge technology and real-world impact.</p>
-          <div class="hero-stats" data-reveal>
-            <div class="stat-card glass"><span class="stat-value" data-count="15">0</span><span class="stat-suffix">+</span><span class="stat-label">Production Projects</span></div>
-            <div class="stat-card glass"><span class="stat-value" data-count="3">0</span><span class="stat-suffix">+</span><span class="stat-label">Years Experience</span></div>
-            <div class="stat-card glass"><span class="stat-value">47</span><span class="stat-label">Counties Impacted</span></div>
-            <div class="stat-card glass"><span class="stat-value">105K</span><span class="stat-label">Contracts Analyzed</span></div>
+          <div class="hero-badge" data-reveal>
+            <span class="pulse-dot"></span>
+            <span>Available for innovative projects</span>
           </div>
+          
+          <h1 class="hero-title" data-reveal>
+            Building the <br />
+            <span class="text-gradient">Decentralized Future</span>
+          </h1>
+          
+          <p class="hero-subtitle" data-reveal>
+            Senior Full-Stack Engineer specializing in <strong>blockchain</strong>, <strong>Web3</strong>, <strong>AI</strong>, and <strong>fintech</strong>. Creating innovative solutions that bridge technology and real-world impact.
+          </p>
+
+          <div class="hero-stats" data-reveal>
+            <div class="stat-card glass">
+              <span class="stat-value" data-count="15">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Production Projects</span>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-value" data-count="3">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-value">47</span>
+              <span class="stat-label">Counties Impacted</span>
+            </div>
+            <div class="stat-card glass">
+              <span class="stat-value">105K</span>
+              <span class="stat-label">Contracts Analyzed</span>
+            </div>
+          </div>
+
           <div class="hero-actions" data-reveal>
-            <a href="#projects" class="btn-primary magnetic-btn"><span>Explore Projects</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="#projects" class="btn-primary magnetic-btn">
+              <span>Explore Projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
             <a href="#contact" class="btn-ghost magnetic-btn">Get In Touch</a>
           </div>
         </div>
       </div>
+
       <div class="scroll-indicator" data-reveal>
         <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
         <span>Scroll to explore</span>
@@ -78,23 +104,40 @@
 
     <div class="marquee-section">
       <div class="marquee-track">
-        <span class="marquee-item">Solidity</span><span class="marquee-dot">✦</span><span class="marquee-item">Smart Contracts</span><span class="marquee-dot">✦</span><span class="marquee-item">Blockchain</span><span class="marquee-dot">✦</span><span class="marquee-item">Web3.js</span><span class="marquee-dot">✦</span><span class="marquee-item">Node.js</span><span class="marquee-dot">✦</span><span class="marquee-item">React</span><span class="marquee-dot">✦</span><span class="marquee-item">AI/ML</span><span class="marquee-dot">✦</span><span class="marquee-item">M-Pesa</span><span class="marquee-dot">✦</span><span class="marquee-item">PostgreSQL</span><span class="marquee-dot">✦</span><span class="marquee-item">MongoDB</span><span class="marquee-dot">✦</span>
-        <span class="marquee-item">Solidity</span><span class="marquee-dot">✦</span><span class="marquee-item">Smart Contracts</span><span class="marquee-dot">✦</span><span class="marquee-item">Blockchain</span><span class="marquee-dot">✦</span><span class="marquee-item">Web3.js</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Solidity</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Smart Contracts</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Blockchain</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Web3.js</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Node.js</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">React</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">AI/ML</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">M-Pesa</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">PostgreSQL</span><span class="marquee-dot"></span>
+        <span class="marquee-item">MongoDB</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Solidity</span><span class="marquee-dot">✦</span>
+        <span class="marquee-item">Smart Contracts</span><span class="marquee-dot"></span>
       </div>
     </div>
 
     <section class="section" id="about">
       <div class="container">
-        <div class="section-header" data-reveal><span class="section-label">01 / About Me</span><h2 class="section-title">Engineering Innovation <br />Across Multiple Domains</h2></div>
+        <div class="section-header" data-reveal>
+          <span class="section-label">01 / About Me</span>
+          <h2 class="section-title">Engineering Innovation <br />Across Multiple Domains</h2>
+        </div>
         <div class="about-grid">
           <div class="about-visual" data-reveal>
             <div class="profile-frame">
-              <div class="profile-ring ring-1"></div><div class="profile-ring ring-2"></div>
+              <div class="profile-ring ring-1"></div>
+              <div class="profile-ring ring-2"></div>
               <img src="/images/douglas.jpg" alt="Douglas Mwebi" class="profile-img" id="aboutPhoto" loading="lazy" />
               <div class="profile-fallback" id="aboutInitials">DM</div>
             </div>
             <div class="info-card glass">
-              <div class="info-header"><span class="info-brand">[DT] Daggy Techs</span><span class="info-badge">Verified Engineer</span></div>
+              <div class="info-header">
+                <span class="info-brand">[DT] Daggy Techs</span>
+                <span class="info-badge">Verified Engineer</span>
+              </div>
               <div class="info-row"><span class="info-key">Name</span><span class="info-val">Douglas Mwebi</span></div>
               <div class="info-row"><span class="info-key">Email</span><a href="mailto:mwebidouglas08@gmail.com" class="info-val info-link">mwebidouglas08@gmail.com</a></div>
               <div class="info-row"><span class="info-key">Location</span><span class="info-val">Kisii Town, Kenya 🇰🇪</span></div>
@@ -115,10 +158,13 @@
 
     <section class="section section-alt" id="expertise">
       <div class="container">
-        <div class="section-header centered" data-reveal><span class="section-label">02 / Expertise</span><h2 class="section-title">Full-Stack Excellence <br />Across Technologies</h2></div>
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">02 / Expertise</span>
+          <h2 class="section-title">Full-Stack Excellence <br />Across Technologies</h2>
+        </div>
         <div class="bento-grid">
           <article class="bento-card spotlight-card span-2" data-reveal>
-            <div class="card-icon">⛓️</div><h3>Blockchain & Web3</h3><p>Developing smart contracts, dApps, and decentralized solutions on Ethereum and EVM-compatible chains. From NFTs to DeFi protocols.</p>
+            <div class="card-icon">️</div><h3>Blockchain & Web3</h3><p>Developing smart contracts, dApps, and decentralized solutions on Ethereum and EVM-compatible chains. From NFTs to DeFi protocols.</p>
             <ul class="card-list"><li>Solidity Smart Contracts</li><li>Web3.js / Ethers.js</li><li>Remix IDE / Hardhat</li><li>IPFS Decentralized Storage</li></ul>
           </article>
           <article class="bento-card spotlight-card" data-reveal><div class="card-icon">⚙️</div><h3>Backend</h3><ul class="card-list"><li>Node.js / Express</li><li>Python / Django</li><li>REST / GraphQL APIs</li><li>Real-time Systems</li></ul></article>
@@ -139,7 +185,10 @@
 
     <section class="section" id="projects">
       <div class="container">
-        <div class="section-header" data-reveal><span class="section-label">03 / Featured Projects</span><h2 class="section-title">Innovation in Action</h2></div>
+        <div class="section-header" data-reveal>
+          <span class="section-label">03 / Featured Projects</span>
+          <h2 class="section-title">Innovation in Action</h2>
+        </div>
         <div class="projects-grid">
           <article class="project-card project-featured spotlight-card" data-reveal>
             <div class="project-glow"></div>
@@ -206,7 +255,10 @@
 
     <section class="section section-alt" id="web3">
       <div class="container">
-        <div class="section-header centered" data-reveal><span class="section-label">04 / Web3 & Blockchain</span><h2 class="section-title">Decentralizing the Future</h2></div>
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">04 / Web3 & Blockchain</span>
+          <h2 class="section-title">Decentralizing the Future</h2>
+        </div>
         <div class="web3-grid">
           <div class="web3-card glass" data-reveal>
             <div class="web3-icon">⛓️</div><h3>Smart Contracts</h3><p>Developing secure, gas-optimized Solidity smart contracts for DeFi, NFTs, and decentralized governance on Ethereum and EVM chains.</p>
@@ -226,8 +278,8 @@
           </div>
         </div>
         <div class="blockchain-stats" data-reveal>
-          <div class="blockchain-stat"><span class="stat-icon">💎</span><span class="stat-label">Crypto Trading</span><span class="stat-desc">Active trader & analyst</span></div>
-          <div class="blockchain-stat"><span class="stat-icon">🔗</span><span class="stat-label">EVM Chains</span><span class="stat-desc">Ethereum, Polygon, BSC</span></div>
+          <div class="blockchain-stat"><span class="stat-icon"></span><span class="stat-label">Crypto Trading</span><span class="stat-desc">Active trader & analyst</span></div>
+          <div class="blockchain-stat"><span class="stat-icon"></span><span class="stat-label">EVM Chains</span><span class="stat-desc">Ethereum, Polygon, BSC</span></div>
           <div class="blockchain-stat"><span class="stat-icon">📊</span><span class="stat-label">DeFi Protocols</span><span class="stat-desc">Hands-on experience</span></div>
           <div class="blockchain-stat"><span class="stat-icon">🛡️</span><span class="stat-label">Security First</span><span class="stat-desc">Best practices & audits</span></div>
         </div>
@@ -236,12 +288,15 @@
 
     <section class="section" id="achievements">
       <div class="container">
-        <div class="section-header centered" data-reveal><span class="section-label">05 / Impact & Achievements</span><h2 class="section-title">Measurable Innovation</h2></div>
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">05 / Impact & Achievements</span>
+          <h2 class="section-title">Measurable Innovation</h2>
+        </div>
         <div class="achievements-grid">
-          <div class="achievement-card glass" data-reveal><div class="achievement-icon">🏆</div><h3>105,738+</h3><p>Government contracts analyzed for fraud detection in KenyaWatch AI</p></div>
-          <div class="achievement-card glass" data-reveal><div class="achievement-icon">🌍</div><h3>47 Counties</h3><p>Geographic reach across Kenya through deployed platforms</p></div>
+          <div class="achievement-card glass" data-reveal><div class="achievement-icon"></div><h3>105,738+</h3><p>Government contracts analyzed for fraud detection in KenyaWatch AI</p></div>
+          <div class="achievement-card glass" data-reveal><div class="achievement-icon"></div><h3>47 Counties</h3><p>Geographic reach across Kenya through deployed platforms</p></div>
           <div class="achievement-card glass" data-reveal><div class="achievement-icon">🤖</div><h3>AI-Powered</h3><p>Multiple platforms using Claude AI, computer vision & NLP</p></div>
-          <div class="achievement-card glass" data-reveal><div class="achievement-icon">⛓️</div><h3>Web3 Ready</h3><p>Smart contracts & dApps on Ethereum blockchain</p></div>
+          <div class="achievement-card glass" data-reveal><div class="achievement-icon">️</div><h3>Web3 Ready</h3><p>Smart contracts & dApps on Ethereum blockchain</p></div>
           <div class="achievement-card glass" data-reveal><div class="achievement-icon">💰</div><h3>Fintech Expert</h3><p>M-Pesa Daraja, STK Push, payment integrations</p></div>
           <div class="achievement-card glass" data-reveal><div class="achievement-icon">🔐</div><h3>Enterprise Security</h3><p>JWT auth, rate limiting, encryption, secure systems</p></div>
         </div>
@@ -290,7 +345,7 @@
     </section>
   </main>
 
-  <footer class="footer glass" role="contentinfo">
+  <footer class="footer glass">
     <div class="container">
       <div class="footer-inner">
         <div><span class="footer-logo"><span class="logo-bracket">[</span>DT<span class="logo-bracket">]</span> Daggy Techs</span><p class="footer-sub">Blockchain · Web3 · AI · Full-Stack Engineering</p></div>
