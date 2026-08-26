@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Douglas Mwebi | Full-Stack Engineer · Daggy Techs</title>
   <meta name="description" content="Douglas Mwebi — Full-stack software engineer in Kisii, Kenya. Building production-grade fintech, civic tech, and AI platforms under Daggy Techs." />
-  <meta name="theme-color" content="#050507" />
+  <meta name="theme-color" content="#030303" />
   
-  <!-- Open Graph / Social -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://daggytechs.com/" />
   <meta property="og:title" content="Douglas Mwebi | Full-Stack Engineer · Daggy Techs" />
   <meta property="og:description" content="Building production-grade platforms from Kisii, Kenya — fintech, civic tech, AI & cybersecurity." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80&auto=format&fit=crop" />
-  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Preconnect & Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   
   <link rel="stylesheet" href="/css/style.css" />
   
@@ -28,46 +26,36 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Douglas Mwebi",
-    "url": "https://github.com/mwebidouglas08-netizen",
     "jobTitle": "Full-Stack Software Engineer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Daggy Techs"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kisii",
-      "addressCountry": "Kenya"
-    },
+    "worksFor": { "@type": "Organization", "name": "Daggy Techs" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Kisii", "addressCountry": "Kenya" },
     "email": "mwebidouglas08@gmail.com",
-    "sameAs": [
-      "https://github.com/mwebidouglas08-netizen"
-    ]
+    "url": "https://github.com/mwebidouglas08-netizen"
   }
   </script>
 </head>
 <body>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Scroll Progress -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="gradient-orb orb-1" aria-hidden="true"></div>
+  <div class="gradient-orb orb-2" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="nav" id="nav" role="banner">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Daggy Techs Home">
+      <a href="#hero" class="nav-logo">
         <span class="logo-bracket">[</span>DT<span class="logo-bracket">]</span>
       </a>
       <nav class="nav-links" role="navigation" aria-label="Main navigation">
         <a href="#about" data-nav>About</a>
-        <a href="#skills" data-nav>Skills</a>
+        <a href="#expertise" data-nav>Expertise</a>
         <a href="#projects" data-nav>Projects</a>
         <a href="#contact" data-nav>Contact</a>
       </nav>
       <a href="#contact" class="nav-cta magnetic-btn">
-        <span>Hire Me</span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span>Let's Talk</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
@@ -75,249 +63,206 @@
     </div>
     <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobile navigation">
       <a href="#about" class="mobile-link">About</a>
-      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#expertise" class="mobile-link">Expertise</a>
       <a href="#projects" class="mobile-link">Projects</a>
       <a href="#contact" class="mobile-link">Contact</a>
-      <a href="#contact" class="mobile-cta">Hire Me →</a>
+      <a href="#contact" class="mobile-cta">Let's Talk →</a>
     </div>
   </header>
 
   <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" id="hero" aria-labelledby="hero-heading">
-      <div class="hero-bg-mesh" aria-hidden="true"></div>
-      <div class="hero-noise" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-container">
+        <div class="hero-badge" data-reveal>
+          <span class="pulse-dot"></span>
+          Available for freelance & contract work
+        </div>
+        
+        <h1 id="hero-heading" class="hero-title" data-reveal>
+          Engineering the Future of <br />
+          <span class="text-gradient">East African Tech.</span>
+        </h1>
+        
+        <p class="hero-subtitle" data-reveal>
+          Daggy Techs combines robust backend architecture, intuitive frontend design, and secure fintech integrations to turn complex problems into scalable, production-grade solutions.
+        </p>
 
-      <div class="hero-inner">
-        <div class="hero-left">
-          <div class="hero-tag" data-anim="fade-up" data-delay="0">
-            <span class="tag-dot" aria-hidden="true"></span>
-            Available for freelance & contract work
-          </div>
-
-          <h1 id="hero-heading" class="hero-heading" data-anim="fade-up" data-delay="1">
-            <span class="heading-line">Douglas</span>
-            <span class="heading-line heading-accent">Mwebi</span>
-          </h1>
-
-          <div class="hero-role" data-anim="fade-up" data-delay="2">
-            <span class="role-main">Full-Stack Engineer</span>
-            <span class="role-dot" aria-hidden="true">·</span>
-            <span class="role-brand">Daggy Techs</span>
-          </div>
-
-          <p class="hero-desc" data-anim="fade-up" data-delay="3">
-            Building production-grade platforms from Kisii, Kenya — 
-            fintech, civic tech, AI &amp; cybersecurity.
-          </p>
-
-          <div class="hero-actions" data-anim="fade-up" data-delay="4">
-            <a href="#projects" class="btn-primary magnetic-btn">
-              View Projects
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#contact" class="btn-ghost magnetic-btn">Get In Touch</a>
-          </div>
-
-          <div class="hero-stats" data-anim="fade-up" data-delay="5">
-            <div class="stat-item">
-              <span class="stat-n" data-count="10">0</span><span class="stat-plus" aria-hidden="true">+</span>
-              <span class="stat-l">Projects</span>
-            </div>
-            <div class="stat-rule" aria-hidden="true"></div>
-            <div class="stat-item">
-              <span class="stat-n" data-count="3">0</span><span class="stat-plus" aria-hidden="true">+</span>
-              <span class="stat-l">Years</span>
-            </div>
-            <div class="stat-rule" aria-hidden="true"></div>
-            <div class="stat-item">
-              <span class="stat-n" aria-hidden="true">🇰🇪</span>
-              <span class="stat-l">Kenya</span>
-            </div>
-          </div>
+        <div class="hero-actions" data-reveal>
+          <a href="#projects" class="btn-primary magnetic-btn">
+            View Featured Work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-ghost magnetic-btn">Get In Touch</a>
         </div>
 
-        <div class="hero-right" data-anim="fade-left" data-delay="2">
-          <div class="photo-wrap" id="tiltCard">
-            <div class="photo-frame">
-              <img
-                src="/images/douglas.jpg"
-                alt="Portrait of Douglas Mwebi"
-                class="photo-img"
-                id="heroPhoto"
-                loading="eager"
-                decoding="async"
-              />
-              <div class="photo-fallback" id="heroFallback" style="display:none" aria-hidden="true">DM</div>
-              <div class="photo-caption">
-                <span class="cap-dot" aria-hidden="true"></span>
-                <div>
-                  <strong>Douglas Mwebi</strong>
-                  <span>Full-Stack Engineer · Kisii, KE</span>
-                </div>
-              </div>
-            </div>
-            <div class="photo-glow" aria-hidden="true"></div>
-            <div class="photo-border-spin" aria-hidden="true"></div>
+        <div class="hero-metrics" data-reveal>
+          <div class="metric">
+            <span class="metric-value" data-count="10">0</span><span class="metric-suffix">+</span>
+            <span class="metric-label">Production Projects</span>
           </div>
-          <div class="float-chip fc-1" data-anim="pop" data-delay="6" aria-hidden="true">⚙️ Node.js</div>
-          <div class="float-chip fc-2" data-anim="pop" data-delay="7" aria-hidden="true">💳 M-Pesa</div>
-          <div class="float-chip fc-3" data-anim="pop" data-delay="8" aria-hidden="true">🛡️ Civic Tech</div>
+          <div class="metric-divider"></div>
+          <div class="metric">
+            <span class="metric-value" data-count="3">0</span><span class="metric-suffix">+</span>
+            <span class="metric-label">Years Experience</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric">
+            <span class="metric-value">47</span>
+            <span class="metric-label">Counties Reached</span>
+          </div>
         </div>
-      </div>
-
-      <div class="scroll-cue" aria-hidden="true">
-        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-        <span>Scroll</span>
       </div>
     </section>
 
-    <!-- Ticker -->
-    <div class="ticker-wrap" aria-hidden="true">
-      <div class="ticker">
-        <span>Node.js</span><i>✦</i><span>Express.js</span><i>✦</i><span>React</span><i>✦</i><span>PostgreSQL</span><i>✦</i>
-        <span>M-Pesa Daraja</span><i>✦</i><span>Railway</span><i>✦</i><span>Anthropic AI</span><i>✦</i><span>MongoDB</span><i>✦</i>
-        <span>Socket.io</span><i>✦</i><span>JWT Auth</span><i>✦</i><span>KenyaWatch AI</span><i>✦</i><span>Pesa Grow</span><i>✦</i>
-        <span>Node.js</span><i>✦</i><span>Express.js</span><i>✦</i><span>React</span><i>✦</i><span>PostgreSQL</span><i>✦</i>
-        <span>M-Pesa Daraja</span><i>✦</i><span>Railway</span><i>✦</i><span>Anthropic AI</span><i>✦</i><span>MongoDB</span><i>✦</i>
-        <span>Socket.io</span><i>✦</i><span>JWT Auth</span><i>✦</i><span>KenyaWatch AI</span><i>✦</i><span>Pesa Grow</span><i>✦</i>
+    <!-- Infinite Marquee -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Node.js</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">React</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">PostgreSQL</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">M-Pesa Daraja</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">Anthropic AI</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">MongoDB</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">Socket.io</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">Railway</span>
+        <span class="marquee-dot">✦</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">Node.js</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">React</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">PostgreSQL</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">M-Pesa Daraja</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">Anthropic AI</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">MongoDB</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">Socket.io</span>
+        <span class="marquee-dot">✦</span>
+        <span class="marquee-item">Railway</span>
+        <span class="marquee-dot">✦</span>
       </div>
     </div>
 
     <!-- About Section -->
     <section class="section" id="about" aria-labelledby="about-heading">
       <div class="container">
-        <div class="sec-label" data-reveal>01 / About</div>
+        <div class="section-header" data-reveal>
+          <span class="section-label">01 / About</span>
+          <h2 id="about-heading" class="section-title">Building the Web <br />for East Africa.</h2>
+        </div>
+        
         <div class="about-grid">
-          <div class="about-photo-col" data-reveal>
-            <div class="about-photo-wrap">
-              <img src="/images/douglas.jpg" alt="Douglas Mwebi" class="about-photo" id="aboutPhoto" loading="lazy" decoding="async" />
-              <div class="about-initials" id="aboutInitials" style="display:none" aria-hidden="true">DM</div>
-              <div class="about-ring r1" aria-hidden="true"></div>
-              <div class="about-ring r2" aria-hidden="true"></div>
+          <div class="about-visual" data-reveal>
+            <div class="profile-frame">
+              <img src="/images/douglas.jpg" alt="Douglas Mwebi" class="profile-img" id="aboutPhoto" loading="lazy" decoding="async" />
+              <div class="profile-fallback" id="aboutInitials" style="display:none">DM</div>
+              <div class="profile-ring r1"></div>
+              <div class="profile-ring r2"></div>
             </div>
-            <div class="id-card">
-              <div class="idc-top">
-                <span class="idc-brand">[DT] Daggy Techs</span>
-                <span class="idc-badge">Engineer</span>
+            <div class="info-card">
+              <div class="info-header">
+                <span class="info-brand">[DT] Daggy Techs</span>
+                <span class="info-badge">Verified Engineer</span>
               </div>
-              <div class="idc-row"><span class="ik">Name</span><span class="iv">Douglas Mwebi</span></div>
-              <div class="idc-row"><span class="ik">Email</span><a href="mailto:mwebidouglas08@gmail.com" class="iv iv-link">mwebidouglas08@gmail.com</a></div>
-              <div class="idc-row"><span class="ik">Phone</span><a href="tel:+254796820013" class="iv iv-link">+254 796 820 013</a></div>
-              <div class="idc-row"><span class="ik">Location</span><span class="iv">Kisii Town, Kenya 🇰🇪</span></div>
-              <div class="idc-row"><span class="ik">GitHub</span><a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener noreferrer" class="iv iv-link">mwebidouglas08-netizen</a></div>
-              <div class="idc-row"><span class="ik">Study</span><span class="iv">B.Sc IT · Kisii University</span></div>
+              <div class="info-row"><span class="info-key">Name</span><span class="info-val">Douglas Mwebi</span></div>
+              <div class="info-row"><span class="info-key">Email</span><a href="mailto:mwebidouglas08@gmail.com" class="info-val info-link">mwebidouglas08@gmail.com</a></div>
+              <div class="info-row"><span class="info-key">Location</span><span class="info-val">Kisii Town, Kenya 🇰🇪</span></div>
+              <div class="info-row"><span class="info-key">Education</span><span class="info-val">B.Sc IT · Kisii University</span></div>
             </div>
           </div>
 
-          <div class="about-text-col" data-reveal>
-            <h2 id="about-heading" class="sec-heading">Building the Web<br/>for East Africa.</h2>
-            <p class="ap">
-              I'm <strong>Douglas Mwebi</strong>, a full-stack software engineer and student at
-              <strong>Kisii University</strong> pursuing a Bachelor's degree in Information Technology.
-              I operate under the brand <strong>Daggy Techs</strong> and build real-world, deployable
-              platforms that solve meaningful problems across East Africa and beyond.
+          <div class="about-content" data-reveal>
+            <p class="lead-text">
+              I'm <strong>Douglas Mwebi</strong>, a full-stack software engineer operating under the brand <strong>Daggy Techs</strong>. I build real-world, deployable platforms that solve meaningful problems across East Africa and beyond.
             </p>
-            <p class="ap">
-              My technical focus spans Node.js/Express backends, PostgreSQL and MongoDB databases,
-              React frontends, M-Pesa Daraja payment integration, and Railway/Render cloud deployment.
-              I'm particularly passionate about <strong>civic tech</strong> and <strong>fintech</strong>
-              — applications that promote transparency, fight corruption, and enable economic participation.
+            <p class="body-text">
+              My technical focus spans Node.js/Express backends, PostgreSQL and MongoDB databases, React frontends, M-Pesa Daraja payment integration, and Railway/Render cloud deployment. I'm particularly passionate about <strong>civic tech</strong> and <strong>fintech</strong> — applications that promote transparency, fight corruption, and enable economic participation.
             </p>
-            <p class="ap">
-              Beyond coding I'm genuinely curious — studying calculus, biology, and cybersecurity,
-              and continuously sharpening my English communication skills. I believe great engineers
-              understand people as deeply as they understand systems.
+            <p class="body-text">
+              Beyond coding, I'm genuinely curious — studying calculus, biology, and cybersecurity, and continuously sharpening my communication skills. I believe great engineers understand people as deeply as they understand systems.
             </p>
-            <div class="chip-row">
-              <span class="chip">🔒 Security-First</span>
-              <span class="chip">🏦 Fintech</span>
-              <span class="chip">🏛️ Civic Tech</span>
-              <span class="chip">🇰🇪 Kenya-Built</span>
-              <span class="chip">📦 Ship-Ready Code</span>
+            
+            <div class="tag-cloud">
+              <span class="tag">🔒 Security-First</span>
+              <span class="tag">🏦 Fintech</span>
+              <span class="tag">🏛️ Civic Tech</span>
+              <span class="tag">🇰🇪 Kenya-Built</span>
+              <span class="tag">📦 Ship-Ready Code</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section sec-alt" id="skills" aria-labelledby="skills-heading">
+    <!-- Expertise / Skills Bento Grid -->
+    <section class="section section-alt" id="expertise" aria-labelledby="expertise-heading">
       <div class="container">
-        <div class="sec-label" data-reveal>02 / Skills</div>
-        <h2 id="skills-heading" class="sec-heading centered" data-reveal>Technical Stack</h2>
-        <div class="skills-grid">
-          <article class="skill-card spotlight-card" data-reveal>
-            <div class="sk-icon" aria-hidden="true">⚙️</div>
-            <h3>Backend</h3>
-            <ul>
+        <div class="section-header centered" data-reveal>
+          <span class="section-label">02 / Expertise</span>
+          <h2 id="expertise-heading" class="section-title">One Engineer. <br />Every Layer of the Stack.</h2>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card spotlight-card span-2" data-reveal>
+            <div class="card-icon">⚙️</div>
+            <h3>Backend Architecture</h3>
+            <p>Designing scalable REST APIs, real-time Socket.io systems, and secure JWT authentication flows with Node.js and Express.</p>
+            <ul class="card-list">
               <li>Node.js / Express.js</li>
               <li>REST API Design</li>
-              <li>JWT Authentication</li>
-              <li>Socket.io Real-time</li>
-              <li>Nodemailer / SMTP</li>
-              <li>Session Management</li>
+              <li>Real-time Systems</li>
             </ul>
           </article>
-          <article class="skill-card spotlight-card" data-reveal>
-            <div class="sk-icon" aria-hidden="true">🎨</div>
+
+          <article class="bento-card spotlight-card" data-reveal>
+            <div class="card-icon">🎨</div>
             <h3>Frontend</h3>
-            <ul>
+            <ul class="card-list">
               <li>React / Vite</li>
               <li>HTML5 / CSS3</li>
-              <li>Vanilla JS (ES6+)</li>
-              <li>Tailwind CSS</li>
-              <li>Responsive Design</li>
-              <li>UI/UX Principles</li>
+              <li>Responsive UI/UX</li>
             </ul>
           </article>
-          <article class="skill-card spotlight-card" data-reveal>
-            <div class="sk-icon" aria-hidden="true">🗄️</div>
+
+          <article class="bento-card spotlight-card" data-reveal>
+            <div class="card-icon">🗄️</div>
             <h3>Databases</h3>
-            <ul>
+            <ul class="card-list">
               <li>PostgreSQL</li>
               <li>MongoDB</li>
-              <li>SQLite / sql.js</li>
               <li>Schema Design</li>
-              <li>Query Optimization</li>
-              <li>Migrations</li>
             </ul>
           </article>
-          <article class="skill-card spotlight-card" data-reveal>
-            <div class="sk-icon" aria-hidden="true">🚀</div>
-            <h3>DevOps & Deploy</h3>
-            <ul>
-              <li>Railway / Nixpacks</li>
-              <li>Render</li>
-              <li>GitHub / Git</li>
-              <li>CI/CD Pipelines</li>
-              <li>Env Management</li>
-              <li>Health Checks</li>
-            </ul>
-          </article>
-          <article class="skill-card spotlight-card" data-reveal>
-            <div class="sk-icon" aria-hidden="true">💳</div>
+
+          <article class="bento-card spotlight-card" data-reveal>
+            <div class="card-icon">💳</div>
             <h3>Fintech / Kenya</h3>
-            <ul>
+            <ul class="card-list">
               <li>M-Pesa Daraja API</li>
               <li>STK Push / C2B</li>
-              <li>Transaction Flows</li>
               <li>PPRA / OCDS Data</li>
-              <li>Fraud Detection</li>
-              <li>Procurement AI</li>
             </ul>
           </article>
-          <article class="skill-card spotlight-card" data-reveal>
-            <div class="sk-icon" aria-hidden="true">🔐</div>
-            <h3>Security</h3>
-            <ul>
-              <li>bcrypt / Hashing</li>
-              <li>Helmet.js / CORS</li>
-              <li>Rate Limiting</li>
-              <li>Input Validation</li>
-              <li>API Proxy Patterns</li>
-              <li>Secure Auth Flows</li>
+
+          <article class="bento-card spotlight-card span-2" data-reveal>
+            <div class="card-icon">🚀</div>
+            <h3>DevOps & Security</h3>
+            <p>Deploying with CI/CD pipelines, managing environment variables, and hardening applications with Helmet, CORS, and rate limiting.</p>
+            <ul class="card-list">
+              <li>Railway / Render</li>
+              <li>Helmet.js / Rate Limiting</li>
+              <li>CI/CD Pipelines</li>
             </ul>
           </article>
         </div>
@@ -327,122 +272,143 @@
     <!-- Projects Section -->
     <section class="section" id="projects" aria-labelledby="projects-heading">
       <div class="container">
-        <div class="sec-label" data-reveal>03 / Projects</div>
-        <h2 id="projects-heading" class="sec-heading" data-reveal>Featured Work</h2>
-        <div class="projects-grid">
+        <div class="section-header" data-reveal>
+          <span class="section-label">03 / Projects</span>
+          <h2 id="projects-heading" class="section-title">From Concept <br />to Deployment.</h2>
+        </div>
 
-          <article class="proj-card proj-featured spotlight-card" data-reveal>
-            <div class="proj-topbar" aria-hidden="true"></div>
-            <div class="proj-head">
-              <div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Civic Tech</span><span class="pb">AI</span></div>
-              <a href="https://github.com/mwebidouglas08-netizen/Kenya-watch-final" target="_blank" rel="noopener noreferrer" class="proj-gh" aria-label="View KenyaWatch AI on GitHub">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <div class="projects-grid">
+          <!-- Featured Project -->
+          <article class="project-card project-featured spotlight-card" data-reveal>
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-badges">
+                <span class="badge badge-live">● Live</span>
+                <span class="badge">Civic Tech</span>
+                <span class="badge">AI</span>
+              </div>
+              <a href="https://github.com/mwebidouglas08-netizen/Kenya-watch-final" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View KenyaWatch AI on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
               </a>
             </div>
-            <div class="proj-num" aria-hidden="true">01</div>
-            <h3 class="proj-title">KenyaWatch AI</h3>
-            <p class="proj-desc">Full-stack anti-corruption intelligence platform. AI-powered procurement fraud detection, ghost project identification using 105,738+ real PPRA/OCDS government contracts across 47 counties, anonymous citizen reporting, EACC sector risk scoring, and a real-time dashboard. Built with Node.js, PostgreSQL, and the Anthropic API.</p>
-            <div class="proj-stack"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Anthropic AI</span><span>PPRA/OCDS</span><span>Railway</span></div>
+            <div class="project-number">01</div>
+            <h3 class="project-title">KenyaWatch AI</h3>
+            <p class="project-desc">Full-stack anti-corruption intelligence platform. AI-powered procurement fraud detection, ghost project identification using 105,738+ real PPRA/OCDS government contracts across 47 counties, anonymous citizen reporting, EACC sector risk scoring, and a real-time dashboard.</p>
+            <div class="project-stack">
+              <span>Node.js</span><span>PostgreSQL</span><span>Anthropic AI</span><span>Railway</span>
+            </div>
           </article>
 
-          <article class="proj-card spotlight-card" data-reveal>
-            <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Fintech</span></div></div>
-            <div class="proj-num" aria-hidden="true">02</div>
-            <h3 class="proj-title">Pesa Grow</h3>
-            <p class="proj-desc">Kenyan M-Pesa investment platform with STK Push, user auth, investment tracking, and admin dashboard. Migrated from better-sqlite3 to sql.js to solve Railway native addon build failures.</p>
-            <div class="proj-stack"><span>Node.js</span><span>M-Pesa Daraja</span><span>sql.js</span><span>Railway</span></div>
+          <!-- Secondary Projects -->
+          <article class="project-card spotlight-card" data-reveal>
+            <div class="project-header">
+              <div class="project-badges"><span class="badge badge-live">● Live</span><span class="badge">Fintech</span></div>
+            </div>
+            <div class="project-number">02</div>
+            <h3 class="project-title">Pesa Grow</h3>
+            <p class="project-desc">Kenyan M-Pesa investment platform with STK Push, user auth, investment tracking, and admin dashboard. Migrated to sql.js for seamless Railway deployment.</p>
+            <div class="project-stack"><span>M-Pesa Daraja</span><span>sql.js</span><span>Railway</span></div>
           </article>
 
-          <article class="proj-card spotlight-card" data-reveal>
-            <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Cybersecurity</span></div></div>
-            <div class="proj-num" aria-hidden="true">03</div>
-            <h3 class="proj-title">SafeNet AI</h3>
-            <p class="proj-desc">AI-powered cybersecurity and fintech monitoring platform. React/Vite frontend, Node.js/MongoDB backend, JWT auth, M-Pesa Daraja integration, and Socket.io real-time threat alerts.</p>
-            <div class="proj-stack"><span>React</span><span>MongoDB</span><span>Socket.io</span><span>M-Pesa</span></div>
+          <article class="project-card spotlight-card" data-reveal>
+            <div class="project-header">
+              <div class="project-badges"><span class="badge badge-live">● Live</span><span class="badge">Cybersecurity</span></div>
+            </div>
+            <div class="project-number">03</div>
+            <h3 class="project-title">SafeNet AI</h3>
+            <p class="project-desc">AI-powered cybersecurity and fintech monitoring platform. React/Vite frontend, Node.js/MongoDB backend, JWT auth, and Socket.io real-time threat alerts.</p>
+            <div class="project-stack"><span>React</span><span>MongoDB</span><span>Socket.io</span></div>
           </article>
 
-          <article class="proj-card spotlight-card" data-reveal>
-            <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">AI</span></div></div>
-            <div class="proj-num" aria-hidden="true">04</div>
-            <h3 class="proj-title">AI Finance Guard</h3>
-            <p class="proj-desc">Kenya-focused AI fraud detection platform. Securely proxies the Anthropic API through a hardened Node.js backend to prevent CORS/key exposure. Real-time transaction risk assessments.</p>
-            <div class="proj-stack"><span>Node.js</span><span>Anthropic API</span><span>Security Proxy</span><span>Railway</span></div>
+          <article class="project-card spotlight-card" data-reveal>
+            <div class="project-header">
+              <div class="project-badges"><span class="badge badge-live">● Live</span><span class="badge">AI</span></div>
+            </div>
+            <div class="project-number">04</div>
+            <h3 class="project-title">AI Finance Guard</h3>
+            <p class="project-desc">Kenya-focused AI fraud detection platform. Securely proxies the Anthropic API through a hardened Node.js backend to prevent CORS/key exposure.</p>
+            <div class="project-stack"><span>Node.js</span><span>Security Proxy</span><span>Railway</span></div>
           </article>
 
-          <article class="proj-card spotlight-card" data-reveal>
-            <div class="proj-head"><div class="proj-badges"><span class="pb pb-live">● Live</span><span class="pb">Media</span></div></div>
-            <div class="proj-num" aria-hidden="true">05</div>
-            <h3 class="proj-title">Kenya045 Media Hub</h3>
-            <p class="proj-desc">Photography, videography and drone services platform covering all 47 Kenyan counties. Session auth, CRUD booking APIs, Gmail SMTP broadcast messaging, and a full admin panel.</p>
-            <div class="proj-stack"><span>Express.js</span><span>Nodemailer</span><span>Session Auth</span><span>Railway</span></div>
+          <article class="project-card spotlight-card" data-reveal>
+            <div class="project-header">
+              <div class="project-badges"><span class="badge badge-live">● Live</span><span class="badge">Media</span></div>
+            </div>
+            <div class="project-number">05</div>
+            <h3 class="project-title">Kenya045 Media Hub</h3>
+            <p class="project-desc">Photography, videography and drone services platform covering all 47 Kenyan counties. Session auth, CRUD booking APIs, and Gmail SMTP broadcast messaging.</p>
+            <div class="project-stack"><span>Express.js</span><span>Nodemailer</span><span>Railway</span></div>
           </article>
-
-          <article class="proj-card spotlight-card" data-reveal>
-            <div class="proj-head"><div class="proj-badges"><span class="pb">Networking</span><span class="pb">Fintech</span></div></div>
-            <div class="proj-num" aria-hidden="true">06</div>
-            <h3 class="proj-title">DaggyNet</h3>
-            <p class="proj-desc">WiFi captive portal and hotspot management system with M-Pesa billing integration. Debugged SVG click-blocking overlays, Railway healthcheck failures, and real-time session management.</p>
-            <div class="proj-stack"><span>Node.js</span><span>M-Pesa</span><span>Captive Portal</span><span>Railway</span></div>
-          </article>
-
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="section sec-alt" id="contact" aria-labelledby="contact-heading">
+    <section class="section section-alt" id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <div class="sec-label" data-reveal>04 / Contact</div>
-        <div class="contact-grid">
-          <div class="contact-left" data-reveal>
-            <h2 id="contact-heading" class="sec-heading">Let's Build<br/>Something Real.</h2>
-            <p class="contact-sub">Need a developer who ships production-ready code and understands the Kenyan tech landscape? Let's talk.</p>
-            <div class="cinfo-list">
-              <a href="mailto:mwebidouglas08@gmail.com" class="cinfo-row">
-                <div class="cinfo-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                <div><span class="ci-k">Email</span><span class="ci-v">mwebidouglas08@gmail.com</span></div>
+        <div class="contact-wrapper">
+          <div class="contact-info" data-reveal>
+            <span class="section-label">04 / Contact</span>
+            <h2 id="contact-heading" class="section-title">Let's Build <br />Something Real.</h2>
+            <p class="contact-subtitle">Need a developer who ships production-ready code and understands the Kenyan tech landscape? Let's talk.</p>
+            
+            <div class="contact-methods">
+              <a href="mailto:mwebidouglas08@gmail.com" class="contact-row">
+                <div class="contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <span class="contact-key">Email</span>
+                  <span class="contact-val">mwebidouglas08@gmail.com</span>
+                </div>
               </a>
-              <a href="tel:+254796820013" class="cinfo-row">
-                <div class="cinfo-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                <div><span class="ci-k">Phone</span><span class="ci-v">+254 796 820 013</span></div>
+              <a href="tel:+254796820013" class="contact-row">
+                <div class="contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-key">Phone</span>
+                  <span class="contact-val">+254 796 820 013</span>
+                </div>
               </a>
-              <div class="cinfo-row">
-                <div class="cinfo-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                <div><span class="ci-k">Location</span><span class="ci-v">Kisii Town, Kenya</span></div>
-              </div>
-              <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener noreferrer" class="cinfo-row">
-                <div class="cinfo-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
-                <div><span class="ci-k">GitHub</span><span class="ci-v">mwebidouglas08-netizen</span></div>
+              <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener noreferrer" class="contact-row">
+                <div class="contact-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-key">GitHub</span>
+                  <span class="contact-val">mwebidouglas08-netizen</span>
+                </div>
               </a>
             </div>
           </div>
 
-          <div class="contact-right" data-reveal>
-            <form class="cform" id="contactForm" novalidate>
-              <div class="cform-row">
-                <div class="cform-group">
+          <div class="contact-form-wrapper" data-reveal>
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
                   <label for="fname">Name</label>
                   <input type="text" id="fname" name="name" placeholder="Your full name" required autocomplete="name" />
                 </div>
-                <div class="cform-group">
+                <div class="form-group">
                   <label for="femail">Email</label>
                   <input type="email" id="femail" name="email" placeholder="you@example.com" required autocomplete="email" />
                 </div>
               </div>
-              <div class="cform-group">
+              <div class="form-group">
                 <label for="fsubject">Subject</label>
-                <input type="text" id="fsubject" name="subject" placeholder="Project inquiry / Collaboration / Other" required />
+                <input type="text" id="fsubject" name="subject" placeholder="Project inquiry / Collaboration" required />
               </div>
-              <div class="cform-group">
+              <div class="form-group">
                 <label for="fmessage">Message</label>
                 <textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
               </div>
-              <button type="submit" class="cform-btn magnetic-btn" id="submitBtn">
+              <button type="submit" class="btn-primary magnetic-btn" id="submitBtn" style="width: 100%; justify-content: center;">
                 <span class="sb-text">Send Message</span>
                 <span class="sb-load" hidden>Sending…</span>
-                <svg class="sb-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="sb-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
-              <div class="cform-fb" id="formFeedback" role="alert" hidden></div>
+              <div class="form-feedback" id="formFeedback" role="alert" hidden></div>
             </form>
           </div>
         </div>
@@ -458,7 +424,7 @@
           <span class="footer-logo"><span class="logo-bracket">[</span>DT<span class="logo-bracket">]</span> Daggy Techs</span>
           <p class="footer-sub">Full-Stack Engineering · Kisii, Kenya</p>
         </div>
-        <p class="footer-copy">© <span id="yr"></span> Douglas Mwebi</p>
+        <p class="footer-copy">© <span id="yr"></span> Douglas Mwebi. All rights reserved.</p>
       </div>
     </div>
   </footer>
