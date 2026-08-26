@@ -1,5 +1,6 @@
 /* ══════════════════════════════════════════════
-   DAGGY TECHS — Premium Portfolio JS v3.0
+   DAGGY TECHS — Premium Portfolio JS v4.0
+   Web3 Animations · Spotlight Effects · Magnetic Buttons
    ══════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(s => actObs.observe(s));
   }
 
-  /* ── Spotlight Hover Effect (Premium) ── */
+  /* ── Spotlight Hover Effect ─ */
   if (window.matchMedia('(hover: hover)').matches) {
     $$('.spotlight-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Contact Form (Fixed & Robust) ── */
+  /* ── Contact Form ─ */
   const form = $('#contactForm');
   const submitBtn = $('#submitBtn');
   const fbEl = $('#formFeedback');
@@ -176,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!name) return showFeedback('err', '✗ Please enter your name.');
       if (!email) return showFeedback('err', '✗ Please enter your email address.');
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showFeedback('err', '✗ Please enter a valid email address.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showFeedback('err', ' Please enter a valid email address.');
       if (!subject) return showFeedback('err', '✗ Please enter a subject.');
       if (!message) return showFeedback('err', '✗ Please enter your message.');
 
@@ -207,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(timeoutId);
         console.error('Contact form error:', err.message);
         if (err.name === 'AbortError') {
-          showFeedback('err', '✗ Request timed out. Please try again.');
+          showFeedback('err', ' Request timed out. Please try again.');
         } else if (err.message.includes('server_error')) {
           showFeedback('err', '✗ Server error. Please email mwebidouglas08@gmail.com directly.');
         } else {
