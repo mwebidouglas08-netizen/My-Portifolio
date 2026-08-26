@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       burger.setAttribute('aria-expanded', isOpen);
     });
-    $$('.mobile-link, .mobile-cta', mobileMenu).forEach(link => {
+    $$('.mobile-link', mobileMenu).forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
         burger.setAttribute('aria-expanded', 'false');
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('.magnetic-btn').forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
-        btn.style.transform = `translate(${(e.clientX - (rect.left + rect.width / 2)) * 0.15}px, ${(e.clientY - (rect.top + rect.height / 2)) * 0.15}px)`;
+        btn.style.transform = `translate(${(e.clientX - (rect.left + rect.width / 2)) * 0.2}px, ${(e.clientY - (rect.top + rect.height / 2)) * 0.2}px)`;
       });
       btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0, 0)'; });
     });
