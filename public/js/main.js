@@ -1,24 +1,12 @@
 /* ══════════════════════════════════════════════
-   DAGGY TECHS — Premium Portfolio JS v2.0
+   DAGGY TECHS — Premium Portfolio JS v3.0
    ══════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  /* ── Utilities ── */
   const $ = (selector, context = document) => context.querySelector(selector);
   const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
-
-  /* ── Scroll Progress ── */
-  const progressBar = $('#scrollProgress');
-  if (progressBar) {
-    window.addEventListener('scroll', () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      progressBar.style.width = scrolled + '%';
-    }, { passive: true });
-  }
 
   /* ── Navigation ── */
   const nav = $('#nav');
@@ -55,14 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
     img.addEventListener('error', showFallback);
     if (img.complete && img.naturalWidth === 0) showFallback();
   };
-  handlePhoto('heroPhoto', 'heroFallback');
   handlePhoto('aboutPhoto', 'aboutInitials');
 
-  /* ── Entry Animations ── */
-  $$('[data-anim]').forEach(el => {
-    const delay = parseFloat(el.getAttribute('data-delay') || 0) * 0.15;
-    setTimeout(() => el.classList.add('go'), delay * 1000);
-  });
+  /* ── Scroll Reveal ── */
+  const reveals = $$('[data-reveal]');
+  if (reveals.length) {
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('[data-reveal]'));
+        const idx = siblings.indexOf(entry.target);
+        entry.target.style.transitionDelay = `${idx * 0.1}s`;
+        entry.target.classList.add('in');
+        revObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => revObs.observe(el));
+  }
 
   /* ── Counter Animation ── */
   const counters = $$('[data-count]');
@@ -86,22 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(el => cntObs.observe(el));
   }
 
-  /* ── Scroll Reveal ── */
-  const reveals = $$('[data-reveal]');
-  if (reveals.length) {
-    const revObs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const siblings = Array.from(entry.target.parentElement.querySelectorAll('[data-reveal]'));
-        const idx = siblings.indexOf(entry.target);
-        entry.target.style.transitionDelay = `${idx * 0.1}s`;
-        entry.target.classList.add('in');
-        revObs.unobserve(entry.target);
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    reveals.forEach(el => revObs.observe(el));
-  }
-
   /* ── Active Nav on Scroll ── */
   const sections = $$('section[id]');
   const navLinks = $$('.nav-links a[data-nav]');
@@ -117,25 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(s => actObs.observe(s));
   }
 
-  /* ── 3D Tilt Effect for Hero Photo ── */
-  const tiltCard = $('#tiltCard');
-  if (tiltCard && window.matchMedia('(hover: hover)').matches) {
-    tiltCard.addEventListener('mousemove', (e) => {
-      const rect = tiltCard.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
-      tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-    tiltCard.addEventListener('mouseleave', () => {
-      tiltCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
-  }
-
-  /* ── Spotlight Hover Effect ── */
+  /* ── Spotlight Hover Effect (Premium) ── */
   if (window.matchMedia('(hover: hover)').matches) {
     $$('.spotlight-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -178,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Contact Form ── */
+  /* ── Contact Form (Fixed & Robust) ── */
   const form = $('#contactForm');
   const submitBtn = $('#submitBtn');
   const fbEl = $('#formFeedback');
@@ -194,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const showFeedback = (type, msg) => {
         fbEl.hidden = false;
-        fbEl.className = `cform-fb ${type}`;
+        fbEl.className = `form-feedback ${type}`;
         fbEl.textContent = msg;
       };
 
@@ -209,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       fbEl.hidden = true;
-      fbEl.className = 'cform-fb';
+      fbEl.className = 'form-feedback';
 
       if (!name) return showFeedback('err', '✗ Please enter your name.');
       if (!email) return showFeedback('err', '✗ Please enter your email address.');
