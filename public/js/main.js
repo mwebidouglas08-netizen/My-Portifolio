@@ -1,225 +1,258 @@
 /* ══════════════════════════════════════════════
-   DAGGY TECHS — Portfolio JS v5 (clean)
+   DAGGY TECHS — Premium Portfolio JS v2.0
    ══════════════════════════════════════════════ */
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+  'use strict';
 
-  /* ── Nav scroll ── */
-  var nav = document.getElementById('nav');
-  if (nav) {
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('stuck', window.scrollY > 30);
+  /* ── Utilities ── */
+  const $ = (selector, context = document) => context.querySelector(selector);
+  const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
+
+  /* ── Scroll Progress ── */
+  const progressBar = $('#scrollProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
     }, { passive: true });
   }
 
-  /* ── Mobile burger ── */
-  var burger = document.getElementById('navBurger');
-  var mMenu  = document.getElementById('navMobile');
-  if (burger && mMenu) {
-    burger.addEventListener('click', function () {
-      mMenu.classList.toggle('open');
+  /* ── Navigation ── */
+  const nav = $('#nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('stuck', window.scrollY > 50);
+    }, { passive: true });
+  }
+
+  const burger = $('#navBurger');
+  const mobileMenu = $('#navMobile');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
     });
-    mMenu.querySelectorAll('.mobile-link, .mobile-cta').forEach(function (l) {
-      l.addEventListener('click', function () { mMenu.classList.remove('open'); });
+    $$('.mobile-link, .mobile-cta', mobileMenu).forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 
-  /* ── Photo error handlers ── */
-  function handlePhoto(imgId, fallbackId) {
-    var img      = document.getElementById(imgId);
-    var fallback = document.getElementById(fallbackId);
+  /* ── Image Fallbacks ── */
+  const handlePhoto = (imgId, fallbackId) => {
+    const img = $(`#${imgId}`);
+    const fallback = $(`#${fallbackId}`);
     if (!img) return;
-    function showFallback() {
+    const showFallback = () => {
       img.style.display = 'none';
       if (fallback) fallback.style.display = 'flex';
-    }
+    };
     img.addEventListener('error', showFallback);
     if (img.complete && img.naturalWidth === 0) showFallback();
-  }
-  handlePhoto('heroPhoto',  'heroFallback');
+  };
+  handlePhoto('heroPhoto', 'heroFallback');
   handlePhoto('aboutPhoto', 'aboutInitials');
 
-  /* ── Hero entry animations ── */
-  document.querySelectorAll('[data-anim]').forEach(function (el) {
-    var delay = parseFloat(el.getAttribute('data-delay') || 0) * 0.12;
-    setTimeout(function () { el.classList.add('go'); }, delay * 1000);
+  /* ── Entry Animations ── */
+  $$('[data-anim]').forEach(el => {
+    const delay = parseFloat(el.getAttribute('data-delay') || 0) * 0.15;
+    setTimeout(() => el.classList.add('go'), delay * 1000);
   });
 
-  /* ── Counter animation ── */
-  var counters = document.querySelectorAll('[data-count]');
+  /* ── Counter Animation ── */
+  const counters = $$('[data-count]');
   if (counters.length) {
-    var cntObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el     = e.target;
-        var target = parseInt(el.getAttribute('data-count'), 10);
+    const cntObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'), 10);
         cntObs.unobserve(el);
-        var start = null;
-        function step(ts) {
+        let start = null;
+        const step = (ts) => {
           if (!start) start = ts;
-          var p = Math.min((ts - start) / 1500, 1);
-          el.textContent = Math.round(p * target);
-          if (p < 1) requestAnimationFrame(step);
-        }
+          const progress = Math.min((ts - start) / 1500, 1);
+          el.textContent = Math.round(progress * target);
+          if (progress < 1) requestAnimationFrame(step);
+        };
         requestAnimationFrame(step);
       });
     }, { threshold: 0.6 });
-    counters.forEach(function (el) { cntObs.observe(el); });
+    counters.forEach(el => cntObs.observe(el));
   }
 
-  /* ── Scroll reveal ── */
-  var reveals = document.querySelectorAll('[data-reveal]');
+  /* ── Scroll Reveal ── */
+  const reveals = $$('[data-reveal]');
   if (reveals.length) {
-    var revObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var siblings = Array.from(e.target.parentElement.querySelectorAll('[data-reveal]'));
-        var idx = siblings.indexOf(e.target);
-        e.target.style.transitionDelay = (idx * 0.08) + 's';
-        e.target.classList.add('in');
-        revObs.unobserve(e.target);
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('[data-reveal]'));
+        const idx = siblings.indexOf(entry.target);
+        entry.target.style.transitionDelay = `${idx * 0.1}s`;
+        entry.target.classList.add('in');
+        revObs.unobserve(entry.target);
       });
-    }, { threshold: 0.08 });
-    reveals.forEach(function (el) { revObs.observe(el); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => revObs.observe(el));
   }
 
-  /* ── Active nav on scroll ── */
-  var sections = document.querySelectorAll('section[id]');
-  var navLinks = document.querySelectorAll('.nav-links a[data-nav]');
+  /* ── Active Nav on Scroll ── */
+  const sections = $$('section[id]');
+  const navLinks = $$('.nav-links a[data-nav]');
   if (sections.length && navLinks.length) {
-    var actObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        navLinks.forEach(function (a) { a.classList.remove('active'); });
-        var active = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+    const actObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = $(`.nav-links a[href="#${entry.target.id}"]`);
         if (active) active.classList.add('active');
       });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    sections.forEach(function (s) { actObs.observe(s); });
+    }, { rootMargin: '-40% 0px -60% 0px' });
+    sections.forEach(s => actObs.observe(s));
   }
 
-  /* ── Footer year ── */
-  var yr = document.getElementById('yr');
+  /* ── 3D Tilt Effect for Hero Photo ── */
+  const tiltCard = $('#tiltCard');
+  if (tiltCard && window.matchMedia('(hover: hover)').matches) {
+    tiltCard.addEventListener('mousemove', (e) => {
+      const rect = tiltCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+      tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+  }
+
+  /* ── Spotlight Hover Effect ── */
+  if (window.matchMedia('(hover: hover)').matches) {
+    $$('.spotlight-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  /* ── Magnetic Buttons ── */
+  if (window.matchMedia('(hover: hover)').matches) {
+    $$('.magnetic-btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+  }
+
+  /* ── Footer Year ── */
+  const yr = $('#yr');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  /* ── Smooth scroll ── */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  /* ── Smooth Scroll ── */
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = $(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 
-  /* ════════════════════════════════════════
-     CONTACT FORM
-  ════════════════════════════════════════ */
-  var form      = document.getElementById('contactForm');
-  var submitBtn = document.getElementById('submitBtn');
-  var fbEl      = document.getElementById('formFeedback');
+  /* ── Contact Form ── */
+  const form = $('#contactForm');
+  const submitBtn = $('#submitBtn');
+  const fbEl = $('#formFeedback');
 
-  if (!form || !submitBtn || !fbEl) return;
+  if (form && submitBtn && fbEl) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+      const name = form.elements['name'].value.trim();
+      const email = form.elements['email'].value.trim();
+      const subject = form.elements['subject'].value.trim();
+      const message = form.elements['message'].value.trim();
 
-    /* Read fields by name attribute — most reliable method */
-    var nameVal    = (form.elements['name']    ? form.elements['name'].value    : '').trim();
-    var emailVal   = (form.elements['email']   ? form.elements['email'].value   : '').trim();
-    var subjectVal = (form.elements['subject'] ? form.elements['subject'].value : '').trim();
-    var messageVal = (form.elements['message'] ? form.elements['message'].value : '').trim();
+      const showFeedback = (type, msg) => {
+        fbEl.hidden = false;
+        fbEl.className = `cform-fb ${type}`;
+        fbEl.textContent = msg;
+      };
 
-    /* Show/hide helpers */
-    function showFeedback(type, msg) {
-      fbEl.hidden = false;
-      fbEl.className = 'cform-fb ' + type;
-      fbEl.textContent = msg;
-    }
-    function setLoading(on) {
-      var sbText = submitBtn.querySelector('.sb-text');
-      var sbLoad = submitBtn.querySelector('.sb-load');
-      var sbArr  = submitBtn.querySelector('.sb-arr');
-      submitBtn.disabled = on;
-      if (sbText) sbText.hidden = on;
-      if (sbLoad) sbLoad.hidden = !on;
-      if (sbArr)  sbArr.hidden  = on;
-    }
+      const setLoading = (on) => {
+        const sbText = $('.sb-text', submitBtn);
+        const sbLoad = $('.sb-load', submitBtn);
+        const sbArr = $('.sb-arrow', submitBtn);
+        submitBtn.disabled = on;
+        if (sbText) sbText.hidden = on;
+        if (sbLoad) sbLoad.hidden = !on;
+        if (sbArr) sbArr.hidden = on;
+      };
 
-    /* Reset feedback */
-    fbEl.hidden = true;
-    fbEl.className = 'cform-fb';
-    fbEl.textContent = '';
+      fbEl.hidden = true;
+      fbEl.className = 'cform-fb';
 
-    /* Validate */
-    if (!nameVal) {
-      showFeedback('err', '✗ Please enter your name.');
-      return;
-    }
-    if (!emailVal) {
-      showFeedback('err', '✗ Please enter your email address.');
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-      showFeedback('err', '✗ Please enter a valid email address.');
-      return;
-    }
-    if (!subjectVal) {
-      showFeedback('err', '✗ Please enter a subject.');
-      return;
-    }
-    if (!messageVal) {
-      showFeedback('err', '✗ Please enter your message.');
-      return;
-    }
+      if (!name) return showFeedback('err', '✗ Please enter your name.');
+      if (!email) return showFeedback('err', '✗ Please enter your email address.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showFeedback('err', '✗ Please enter a valid email address.');
+      if (!subject) return showFeedback('err', '✗ Please enter a subject.');
+      if (!message) return showFeedback('err', '✗ Please enter your message.');
 
-    /* Send */
-    setLoading(true);
+      setLoading(true);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000);
 
-    var controller = new AbortController();
-    var tid = setTimeout(function () { controller.abort(); }, 20000);
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message }),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        
+        const text = await res.text();
+        let json;
+        try { json = JSON.parse(text); } catch { throw new Error('server_error_' + res.status); }
 
-    fetch('/api/contact', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({
-        name:    nameVal,
-        email:   emailVal,
-        subject: subjectVal,
-        message: messageVal
-      }),
-      signal: controller.signal
-    })
-    .then(function (res) {
-      clearTimeout(tid);
-      return res.text().then(function (text) {
-        try {
-          return JSON.parse(text);
-        } catch (_) {
-          throw new Error('server_error_' + res.status);
+        if (json.success) {
+          showFeedback('ok', '✓ ' + json.message);
+          form.reset();
+        } else {
+          showFeedback('err', '✗ ' + (json.message || 'Something went wrong. Please try again.'));
         }
-      });
-    })
-    .then(function (json) {
-      if (json.success) {
-        showFeedback('ok', '✓ ' + json.message);
-        form.reset();
-      } else {
-        showFeedback('err', '✗ ' + (json.message || 'Something went wrong. Please try again.'));
+      } catch (err) {
+        clearTimeout(timeoutId);
+        console.error('Contact form error:', err.message);
+        if (err.name === 'AbortError') {
+          showFeedback('err', '✗ Request timed out. Please try again.');
+        } else if (err.message.includes('server_error')) {
+          showFeedback('err', '✗ Server error. Please email mwebidouglas08@gmail.com directly.');
+        } else {
+          showFeedback('err', '✗ Could not reach the server. Please email mwebidouglas08@gmail.com directly.');
+        }
+      } finally {
+        setLoading(false);
       }
-    })
-    .catch(function (err) {
-      clearTimeout(tid);
-      console.error('Contact form error:', err.message);
-      if (err.name === 'AbortError') {
-        showFeedback('err', '✗ Request timed out. Please try again.');
-      } else if (err.message.indexOf('server_error') === 0) {
-        showFeedback('err', '✗ Server error. Please email mwebidouglas08@gmail.com directly.');
-      } else {
-        showFeedback('err', '✗ Could not reach the server. Please email mwebidouglas08@gmail.com directly.');
-      }
-    })
-    .finally(function () {
-      setLoading(false);
     });
-  });
-
-}); // end DOMContentLoaded
+  }
+});
