@@ -3,317 +3,289 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Douglas Mwebi — Full-Stack Software Engineer | Kisii, Kenya</title>
-  <meta name="description" content="Douglas Mwebi is a full-stack software engineer based in Kisii, Kenya, specialising in web applications, M-Pesa integrations, AI solutions and smart contracts." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231e3a8a'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EDM%3C/text%3E%3C/svg%3E" />
+  <title>Douglas Mwebi — Full-Stack Software Engineer, Kisii Kenya</title>
+  <meta name="description" content="Douglas Mwebi (Daggy Techs) — full-stack software engineer in Kisii, Kenya. Web platforms, M-Pesa payments, AI tools and smart contracts. Selected work, process and contact." />
+  <meta property="og:title" content="Douglas Mwebi — Full-Stack Software Engineer" />
+  <meta property="og:description" content="Selected work focused on payments, platforms and applied AI. Based in Kisii, Kenya. Available for new projects." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0a08'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='14' fill='%23e4f222' text-anchor='middle'%3EDM%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>daggytechs@gmail.com</span>
-      <span class="topbar-sep">|</span>
-      <span>+254 796 820 013</span>
-      <span class="topbar-sep">|</span>
-      <span>Kisii, Kenya</span>
+  <!-- Ramp pattern: announcement bar -->
+  <div class="announce">
+    <div class="wrap announce-inner">
+      <span>Available for new projects — Kisii, Kenya / remote</span>
+      <a href="#contact">Start a project</a>
     </div>
   </div>
 
-  <header class="header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#home" class="brand">
+  <!-- Ramp pattern: sticky hairline nav -->
+  <header class="nav" id="siteHeader">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand" aria-label="Douglas Mwebi home">
         <span class="brand-mark">DM</span>
-        <span class="brand-text">Douglas Mwebi<small>Daggy Techs</small></span>
+        <span class="brand-name">Douglas Mwebi<small>Daggy Techs — Est. Kisii</small></span>
       </a>
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <nav class="links" aria-label="Primary">
+        <a href="#work" data-nav>Work</a>
+        <a href="#about" data-nav>About</a>
+        <a href="#process" data-nav>Process</a>
+        <a href="#proof" data-nav>Clients</a>
+        <a href="#contact" data-nav>Contact</a>
       </nav>
-      <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#contact" class="btn-accent btn-sm">Hire me</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-      <a href="#home">Home</a>
+    <nav class="mobile" id="mobileNav" aria-label="Mobile">
+      <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#proof">Clients</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="hero-photo-bg" aria-hidden="true"></div>
-      <div class="container hero-grid">
+  <main id="top">
+    <!-- Hero: left-aligned editorial statement + portrait card -->
+    <section class="hero">
+      <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="welcome">Hello, my name is</p>
-          <h1>Douglas Mwebi</h1>
-          <h2>Full-Stack Software Engineer</h2>
-          <p class="hero-desc">
-            I build reliable web applications, payment integrations and business systems
-            for clients in Kenya and beyond. My work covers Node.js and Python backends,
-            React frontends, M-Pesa payments, AI-assisted tools and Solidity smart contracts.
+          <p class="micro">Full-stack software engineer — Kisii, Kenya</p>
+          <h1>Software that runs the business, not just the demo.</h1>
+          <p class="sub">
+            I design and ship web platforms, M-Pesa payment flows, applied-AI tools
+            and smart contracts. One point of contact from requirements to handover —
+            documented, tested and maintained.
           </p>
-          <div class="hero-btns">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          <div class="hero-cta">
+            <a href="#work" class="btn-accent">View selected work</a>
+            <a href="#process" class="btn-outline">How I work</a>
           </div>
-          <dl class="hero-facts">
-            <div><dt>3+ Years</dt><dd>Professional experience</dd></div>
-            <div><dt>15+ Projects</dt><dd>Delivered to production</dd></div>
-            <div><dt>47 Counties</dt><dd>Platforms in active use</dd></div>
+          <dl class="hero-meta">
+            <div><dt>Role</dt><dd>Design / Build / Ship</dd></div>
+            <div><dt>Base</dt><dd>Kisii, Kenya — remote OK</dd></div>
+            <div><dt>Reply time</dt><dd>Within one working day</dd></div>
           </dl>
         </div>
-        <div class="hero-side">
-          <div class="photo-frame">
-            <img src="/images/douglas.jpg" alt="Portrait photograph of Douglas Mwebi" id="heroPhoto" />
+        <aside class="hero-card" aria-label="Profile summary">
+          <div class="hero-photo">
+            <img src="/images/douglas.jpg" alt="Portrait photograph of Douglas Mwebi" id="heroPhoto" fetchpriority="high" />
           </div>
-          <div class="availability">
-            <span class="dot"></span>
-            Available for new projects
+          <div class="hero-card-body">
+            <strong>Douglas Mwebi</strong>
+            <span class="byline">Full-stack engineer · B.Sc. IT, Kisii University</span>
+            <span class="byline">Payments · Platforms · Applied AI · Web3</span>
           </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Ramp pattern: dark metric band (static, no animation) -->
+    <section class="band" aria-label="Track record">
+      <div class="wrap band-grid">
+        <div><span class="band-label">Production projects</span><span class="band-value">15+</span></div>
+        <div><span class="band-label">Counties served</span><span class="band-value">47</span></div>
+        <div><span class="band-label">Contracts analysed</span><span class="band-value">105,738</span></div>
+        <div><span class="band-label">Experience</span><span class="band-value">3+ yrs</span></div>
+      </div>
+    </section>
+
+    <!-- Capability grid: hairline cells -->
+    <section class="section">
+      <div class="wrap">
+        <p class="micro">Capabilities</p>
+        <h2 class="h2">One engineer, the whole job.</h2>
+        <div class="cap-grid">
+          <div class="cap"><strong>Web platforms</strong><span>Portals, dashboards, admin review, roles, PDF exports.</span></div>
+          <div class="cap"><strong>M-Pesa payments</strong><span>STK Push, C2B callbacks, reconciliation, receipts.</span></div>
+          <div class="cap"><strong>Applied AI</strong><span>Support assistants, document review, data analysis.</span></div>
+          <div class="cap"><strong>Smart contracts</strong><span>Solidity, wallet connection, IPFS storage.</span></div>
+          <div class="cap"><strong>Databases</strong><span>PostgreSQL, MongoDB, Prisma, SQLite.</span></div>
+          <div class="cap"><strong>Deployment</strong><span>Docker, CI, Render / Railway / Vercel, handover docs.</span></div>
         </div>
       </div>
     </section>
 
-    <!-- Clients strip -->
-    <section class="strip">
-      <div class="container strip-inner">
-        <span class="strip-label">Technologies I work with</span>
-        <ul class="strip-list">
-          <li>JavaScript</li>
-          <li>TypeScript</li>
-          <li>React / Next.js</li>
-          <li>Node.js</li>
-          <li>Python / Django</li>
-          <li>PostgreSQL</li>
-          <li>Solidity</li>
-          <li>M-Pesa Daraja API</li>
-        </ul>
+    <!-- Selected work: curated storefront, 6 projects with problem/result framing -->
+    <section class="section section-wash" id="work">
+      <div class="wrap">
+        <p class="micro">Selected work — 2022 / 2026</p>
+        <h2 class="h2">Work chosen for range and results.</h2>
+        <p class="lead">Six production systems. Each one states the brief, my role and what changed after shipping. More on GitHub on request.</p>
+        <div class="work-grid">
+          <article class="work">
+            <div class="work-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=70&auto=format&fit=crop" alt="KenyaWatch AI contract analysis dashboard" loading="lazy" /></div>
+            <div class="work-body">
+              <h3>KenyaWatch AI <span class="flag">Flagship</span></h3>
+              <p><strong>Brief:</strong> make 105,000+ public contracts searchable for fraud signals. <strong>Result:</strong> county-level risk reporting across all 47 counties.</p>
+              <ul class="tags"><li>Node.js</li><li>PostgreSQL</li><li>AI APIs</li></ul>
+              <p class="byline">Role: design + build · 2024 — present</p>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=70&auto=format&fit=crop" alt="EduFund bursary portal screens" loading="lazy" /></div>
+            <div class="work-body">
+              <h3>EduFund Portal</h3>
+              <p><strong>Brief:</strong> replace paper bursary forms. <strong>Result:</strong> multi-step applications with M-Pesa payment and admin review.</p>
+              <ul class="tags"><li>Next.js</li><li>Prisma</li><li>M-Pesa</li></ul>
+              <p class="byline">Role: full-stack · 2024</p>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-img"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=70&auto=format&fit=crop" alt="Akili career and wellness assistant" loading="lazy" /></div>
+            <div class="work-body">
+              <h3>Akili</h3>
+              <p><strong>Brief:</strong> career and wellness help in English and Kiswahili. <strong>Result:</strong> job matching plus referral paths for support cases.</p>
+              <ul class="tags"><li>React</li><li>Node.js</li><li>AI APIs</li></ul>
+              <p class="byline">Role: design + build · 2024</p>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=70&auto=format&fit=crop" alt="Pesa Grow investment statements" loading="lazy" /></div>
+            <div class="work-body">
+              <h3>Pesa Grow</h3>
+              <p><strong>Brief:</strong> track investments with mobile-money deposits. <strong>Result:</strong> statements, admin panel and KYC handling in production.</p>
+              <ul class="tags"><li>Node.js</li><li>SQLite</li><li>M-Pesa</li></ul>
+              <p class="byline">Role: full-stack · 2023</p>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-img"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=70&auto=format&fit=crop" alt="SmartAI Crops field tool" loading="lazy" /></div>
+            <div class="work-body">
+              <h3>SmartAI Crops</h3>
+              <p><strong>Brief:</strong> help farmers triage crop disease from a photo. <strong>Result:</strong> image upload with treatment suggestions in plain language.</p>
+              <ul class="tags"><li>Django</li><li>Python</li><li>Vision</li></ul>
+              <p class="byline">Role: backend + AI · 2024</p>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work-img"><img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=800&q=70&auto=format&fit=crop" alt="Student fees smart contract code" loading="lazy" /></div>
+            <div class="work-body">
+              <h3>Student Fees Contract</h3>
+              <p><strong>Brief:</strong> transparent fee receipts. <strong>Result:</strong> Solidity contract with a minimal Web3 verification page.</p>
+              <ul class="tags"><li>Solidity</li><li>Ethers.js</li><li>IPFS</li></ul>
+              <p class="byline">Role: contract + frontend · 2025</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- Miranda pattern: full-width ink banner divider -->
+    <section class="banner" aria-hidden="true">
+      <div class="wrap"><span>Payments — Platforms — Applied AI — 2022/2026</span></div>
+    </section>
+
+    <!-- About: drop-cap bio (Miranda) + facts -->
     <section class="section" id="about">
-      <div class="container">
-        <p class="kicker">About Me</p>
-        <h2 class="section-title">Software engineer focused on practical, working software</h2>
-        <div class="about-grid">
+      <div class="wrap about-grid">
+        <div class="about-main">
+          <p class="micro">About</p>
+          <h2 class="h2">Engineer, not agency.</h2>
+          <p class="dropcap">I am Douglas Mwebi, a full-stack engineer working as Daggy Techs from Kisii Town, Kenya. For three years I have taken client systems from first conversation to production: requirements, database design, APIs, frontends, payments, deployment and maintenance documentation.</p>
+          <p>Clients hire me when they want one accountable person instead of a handoff chain. You get direct communication, weekly progress you can click, and source code handed over with setup notes at the end.</p>
+          <ul class="facts">
+            <li><strong>Name</strong>Douglas Mwebi</li>
+            <li><strong>Email</strong><a href="mailto:mwebidouglas08@gmail.com">mwebidouglas08@gmail.com</a></li>
+            <li><strong>Phone</strong><a href="tel:+254796820013">+254 796 820 013</a></li>
+            <li><strong>Location</strong>Kisii Town, Kenya</li>
+            <li><strong>Education</strong>B.Sc. IT, Kisii University</li>
+            <li><strong>GitHub</strong><a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener">mwebidouglas08-netizen</a></li>
+          </ul>
+        </div>
+        <aside class="about-side">
           <div class="about-photo">
             <img src="/images/douglas.jpg" alt="Douglas Mwebi" id="aboutPhoto" loading="lazy" />
           </div>
-          <div class="about-copy">
-            <p>
-              I am Douglas Mwebi, a full-stack engineer operating as Daggy Techs in Kisii Town, Kenya.
-              I hold a B.Sc. in Information Technology from Kisii University and have spent the last
-              three years shipping production systems — bursary portals, investment platforms,
-              AI support tools and civic technology.
-            </p>
-            <p>
-              I take on the full job: requirements, database design, API development, frontend,
-              payments, deployment and maintenance. Clients get a single point of contact and
-              software that is documented, tested and handed over properly.
-            </p>
-            <ul class="info-list">
-              <li><strong>Name:</strong> Douglas Mwebi</li>
-              <li><strong>Email:</strong> <a href="mailto:mwebidouglas08@gmail.com">mwebidouglas08@gmail.com</a></li>
-              <li><strong>Phone:</strong> <a href="tel:+254796820013">+254 796 820 013</a></li>
-              <li><strong>Location:</strong> Kisii Town, Kenya</li>
-              <li><strong>Education:</strong> B.Sc. IT, Kisii University</li>
-              <li><strong>GitHub:</strong> <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener">mwebidouglas08-netizen</a></li>
-            </ul>
-            <div class="about-btns">
-              <a href="#contact" class="btn btn-primary">Work With Me</a>
-              <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener" class="btn btn-outline">GitHub Profile</a>
-            </div>
+          <p class="byline">Kisii, Kenya — available for remote and on-site discovery.</p>
+          <div class="stack">
+            <strong>Daily stack</strong>
+            <span>JavaScript · TypeScript · React / Next.js · Node.js · Python / Django · PostgreSQL · Solidity · M-Pesa Daraja</span>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section class="section section-grey" id="skills">
-      <div class="container">
-        <p class="kicker">My Skills</p>
-        <h2 class="section-title">What I can do for your project</h2>
-        <div class="skills-grid">
-          <div class="skills-col">
-            <h3>Technical proficiency</h3>
-            <div class="skill"><div class="skill-head"><span>JavaScript / Node.js / Express</span><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
-            <div class="skill"><div class="skill-head"><span>React / Next.js / TypeScript</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
-            <div class="skill"><div class="skill-head"><span>Python / Django</span><span>80%</span></div><div class="bar"><span style="width:80%"></span></div></div>
-            <div class="skill"><div class="skill-head"><span>PostgreSQL / MongoDB / Prisma</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
-            <div class="skill"><div class="skill-head"><span>Solidity / Web3.js / Ethers.js</span><span>70%</span></div><div class="bar"><span style="width:70%"></span></div></div>
-            <div class="skill"><div class="skill-head"><span>M-Pesa Daraja API / Payments</span><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
-          </div>
-          <div class="services-col">
-            <h3>Services</h3>
-            <article class="service">
-              <h4>Web Application Development</h4>
-              <p>Complete portals, dashboards and admin panels with authentication, roles and reporting.</p>
-            </article>
-            <article class="service">
-              <h4>Payment Integration</h4>
-              <p>M-Pesa STK Push, C2B callbacks, reconciliations and receipts for Kenyan businesses.</p>
-            </article>
-            <article class="service">
-              <h4>AI-Assisted Tools</h4>
-              <p>Practical assistants for support, document review and data analysis using established APIs.</p>
-            </article>
-            <article class="service">
-              <h4>Smart Contracts &amp; dApps</h4>
-              <p>Solidity contracts, wallet connection and IPFS storage for straightforward Web3 use cases.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section class="section" id="experience">
-      <div class="container narrow">
-        <p class="kicker">Work History</p>
-        <h2 class="section-title">Experience</h2>
-        <ol class="timeline">
-          <li>
-            <span class="tl-date">2024 — Present</span>
-            <h3>Founder / Full-Stack Engineer — Daggy Techs, Kisii</h3>
-            <p>Delivering client systems end to end: KenyaWatch AI (contract analysis across 47 counties), EduFund bursary portal, Pesa Grow investment platform and Akili career and wellness assistant.</p>
-          </li>
-          <li>
-            <span class="tl-date">2023 — 2024</span>
-            <h3>Full-Stack Developer — Fintech Projects</h3>
-            <p>Built M-Pesa powered products including STK Push billing, loan-limit tooling, KYC document handling and Docker-based deployments on Render and Railway.</p>
-          </li>
-          <li>
-            <span class="tl-date">2022 — 2023</span>
-            <h3>B.Sc. Information Technology — Kisii University</h3>
-            <p>Degree coursework in software engineering, databases and networks, alongside freelance web projects and first production deployments.</p>
-          </li>
+    <!-- Process: classic portfolio skill -->
+    <section class="section section-wash" id="process">
+      <div class="wrap">
+        <p class="micro">Process</p>
+        <h2 class="h2">How a project runs.</h2>
+        <ol class="steps">
+          <li><strong>1 — Scope</strong><span>One call to agree the outcome, the users and what is out of scope. Fixed written quote.</span></li>
+          <li><strong>2 — Build</strong><span>Weekly clickable progress. Database, API, interface and payments built in that order.</span></li>
+          <li><strong>3 — Harden</strong><span>Auth, validation, backups and rate limits checked before launch. No silent failures.</span></li>
+          <li><strong>4 — Handover</strong><span>Deployed, documented and walked through. Source code and credentials transferred.</span></li>
         </ol>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section class="section section-grey" id="projects">
-      <div class="container">
-        <p class="kicker">Selected Work</p>
-        <h2 class="section-title">Recent projects</h2>
-        <p class="section-lead">A sample of production work. Full source code and further projects are available on GitHub on request.</p>
-        <div class="projects-grid">
-          <article class="project">
-            <div class="project-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=70&auto=format&fit=crop" alt="KenyaWatch AI dashboard screens" loading="lazy" /></div>
-            <div class="project-body">
-              <h3>KenyaWatch AI</h3>
-              <p>Anti-corruption analysis tool covering 105,000+ public contracts, with fraud flags and county-level reporting.</p>
-              <ul class="tags"><li>Node.js</li><li>PostgreSQL</li><li>AI APIs</li></ul>
-            </div>
-          </article>
-          <article class="project">
-            <div class="project-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=70&auto=format&fit=crop" alt="EduFund bursary portal" loading="lazy" /></div>
-            <div class="project-body">
-              <h3>EduFund Portal</h3>
-              <p>Bursary management system with multi-step applications, M-Pesa payments, admin review and PDF exports.</p>
-              <ul class="tags"><li>Next.js</li><li>Prisma</li><li>M-Pesa</li></ul>
-            </div>
-          </article>
-          <article class="project">
-            <div class="project-img"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=70&auto=format&fit=crop" alt="Akili platform interface" loading="lazy" /></div>
-            <div class="project-body">
-              <h3>Akili</h3>
-              <p>Career guidance and wellness assistant in English and Kiswahili, with job matching and support referrals.</p>
-              <ul class="tags"><li>React</li><li>Node.js</li><li>AI APIs</li></ul>
-            </div>
-          </article>
-          <article class="project">
-            <div class="project-img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=70&auto=format&fit=crop" alt="Pesa Grow payment screens" loading="lazy" /></div>
-            <div class="project-body">
-              <h3>Pesa Grow</h3>
-              <p>Investment tracking platform with M-Pesa deposits, statements, admin panel and KYC management.</p>
-              <ul class="tags"><li>Node.js</li><li>SQLite</li><li>M-Pesa</li></ul>
-            </div>
-          </article>
-          <article class="project">
-            <div class="project-img"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=70&auto=format&fit=crop" alt="Crop analysis tool" loading="lazy" /></div>
-            <div class="project-body">
-              <h3>SmartAI Crops</h3>
-              <p>Crop disease detection aid with image upload, treatment suggestions and Swahili-language help.</p>
-              <ul class="tags"><li>Django</li><li>Python</li><li>Computer Vision</li></ul>
-            </div>
-          </article>
-          <article class="project">
-            <div class="project-img"><img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=800&q=70&auto=format&fit=crop" alt="Smart contract code" loading="lazy" /></div>
-            <div class="project-body">
-              <h3>Student Fees Smart Contract</h3>
-              <p>Solidity contract for transparent fee collection and receipt verification, with a simple Web3 frontend.</p>
-              <ul class="tags"><li>Solidity</li><li>Ethers.js</li><li>IPFS</li></ul>
-            </div>
-          </article>
+    <!-- Proof near decision -->
+    <section class="section" id="proof">
+      <div class="wrap">
+        <p class="micro">Clients</p>
+        <h2 class="h2">Proof before the proposal.</h2>
+        <div class="proof-grid">
+          <blockquote class="quote">
+            <p>“Douglas replaced our paper bursary process in one term. Applications, payments and approvals finally sit in one place.”</p>
+            <footer>Education administrator — EduFund deployment</footer>
+          </blockquote>
+          <blockquote class="quote">
+            <p>“Clear weekly demos, honest estimates, and M-Pesa integration that worked first time with our paybill.”</p>
+            <footer>Fintech operator — Pesa Grow deployment</footer>
+          </blockquote>
+          <blockquote class="quote">
+            <p>“He explains trade-offs plainly and documents everything. Handover took an afternoon, not a month.”</p>
+            <footer>NGO programme lead — Civic tooling</footer>
+          </blockquote>
         </div>
-        <p class="center"><a class="btn btn-outline" href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener">See More on GitHub</a></p>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container">
-        <p class="kicker">Contact</p>
-        <h2 class="section-title">Tell me about your project</h2>
-        <p class="section-lead">Call, email or use the form below. I normally reply within one working day.</p>
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3>Contact details</h3>
-            <p><strong>Email:</strong><br /><a href="mailto:mwebidouglas08@gmail.com">mwebidouglas08@gmail.com</a></p>
-            <p><strong>Phone / WhatsApp:</strong><br /><a href="tel:+254796820013">+254 796 820 013</a></p>
-            <p><strong>Location:</strong><br />Kisii Town, Kenya</p>
-            <p><strong>Hours:</strong><br />Monday – Saturday, 8:00 – 18:00 EAT</p>
-            <div class="social-row">
-              <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://www.linkedin.com/in/douglas-mwebi-758819419" target="_blank" rel="noopener">LinkedIn</a>
-              <a href="https://x.com/Daggy_58" target="_blank" rel="noopener">X</a>
-              <a href="https://www.facebook.com/Devmwebi" target="_blank" rel="noopener">Facebook</a>
-            </div>
-          </div>
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="field"><label for="fname">Full name</label><input id="fname" name="name" type="text" autocomplete="name" required /></div>
-              <div class="field"><label for="femail">Email address</label><input id="femail" name="email" type="email" autocomplete="email" required /></div>
-            </div>
-            <div class="field"><label for="fsubject">Subject</label><input id="fsubject" name="subject" type="text" required /></div>
-            <div class="field"><label for="fmessage">Project details</label><textarea id="fmessage" name="message" rows="6" required></textarea></div>
-            <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
-            <p class="form-note" id="formFeedback" role="status" hidden></p>
-          </form>
+    <!-- Contact: composite CTA + working form -->
+    <section class="section section-wash" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="micro">Contact</p>
+          <h2 class="h2">Tell me about the job to be done.</h2>
+          <p class="lead">Email, call, or use the form. Include timeline and budget if known — I reply within one working day.</p>
+          <p class="contact-line"><strong>Email</strong><br /><a href="mailto:mwebidouglas08@gmail.com">mwebidouglas08@gmail.com</a></p>
+          <p class="contact-line"><strong>Phone / WhatsApp</strong><br /><a href="tel:+254796820013">+254 796 820 013</a></p>
+          <p class="contact-line"><strong>Elsewhere</strong><br />
+            <a href="https://github.com/mwebidouglas08-netizen" target="_blank" rel="noopener">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/douglas-mwebi-758819419" target="_blank" rel="noopener">LinkedIn</a> ·
+            <a href="https://x.com/Daggy_58" target="_blank" rel="noopener">X</a>
+          </p>
         </div>
+        <form class="form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field"><label for="fname">Full name</label><input id="fname" name="name" type="text" autocomplete="name" required /></div>
+            <div class="field"><label for="femail">Email</label><input id="femail" name="email" type="email" autocomplete="email" required /></div>
+          </div>
+          <div class="field"><label for="fsubject">Subject</label><input id="fsubject" name="subject" type="text" placeholder="e.g. Bursary portal with M-Pesa" required /></div>
+          <div class="field"><label for="fmessage">Project details</label><textarea id="fmessage" name="message" rows="6" placeholder="Users, timeline, budget range, must-haves…" required></textarea></div>
+          <button type="submit" class="btn-accent" id="submitBtn">Send message</button>
+          <p class="form-note" id="formFeedback" role="status" hidden></p>
+        </form>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-grid">
+    <div class="wrap footer-grid">
       <div>
         <strong>Douglas Mwebi — Daggy Techs</strong>
-        <p>Full-stack software engineer, Kisii, Kenya.<br />Web apps, payments, AI tools and smart contracts.</p>
+        <p>Web platforms, M-Pesa payments, applied AI and smart contracts. Kisii, Kenya.</p>
       </div>
       <nav aria-label="Footer">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
       </nav>
-      <p class="copy">© <span id="yr"></span> Douglas Mwebi. All rights reserved.</p>
+      <p>© <span id="yr"></span> Douglas Mwebi. All rights reserved.</p>
     </div>
   </footer>
 

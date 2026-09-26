@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', function () {
-    if (header) header.classList.toggle('scrolled', window.scrollY > 10);
-  }, { passive: true });
-
   var menuBtn = document.getElementById('menuBtn');
   var mobileNav = document.getElementById('mobileNav');
   if (menuBtn && mobileNav) {
@@ -19,27 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Active nav highlighting
-  var links = Array.prototype.slice.call(document.querySelectorAll('.main-nav a'));
-  var sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact']
-    .map(function (id) { return document.getElementById(id); })
-    .filter(Boolean);
-  if ('IntersectionObserver' in window && sections.length) {
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
-        });
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    sections.forEach(function (s) { obs.observe(s); });
-  }
-
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  // Contact form
   var form = document.getElementById('contactForm');
   var note = document.getElementById('formFeedback');
   var btn = document.getElementById('submitBtn');
@@ -68,7 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name, email: email, subject: subject, message: message })
       })
-        .then(function (res) { return res.json().catch(function () { return {}; }).then(function (j) { return { res: res, json: j }; }); })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (j) { return { res: res, json: j }; });
+        })
         .then(function (out) {
           if (out.res.ok && out.json.success !== false) {
             show('ok', out.json.message || 'Thank you. Your message has been received.');
@@ -82,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .finally(function () {
           btn.disabled = false;
-          btn.textContent = 'Send Message';
+          btn.textContent = 'Send message';
         });
     });
   }
