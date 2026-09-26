@@ -240,6 +240,40 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .to-top.show { opacity: 1; pointer-events: auto; }
 .to-top:hover { background: var(--obsidian); }
 
+/* Two-column capability grid (Web3 practice) */
+.cap-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.cap-grid-2 .cap:nth-child(3n) { border-right: 1px solid var(--hairline); }
+.cap-grid-2 .cap:nth-child(2n) { border-right: none; }
+.cap-grid-2 .cap:nth-last-child(-n+3) { border-bottom: 1px solid var(--hairline); }
+.cap-grid-2 .cap:nth-last-child(-n+2) { border-bottom: none; }
+.tools {
+  margin-top: 20px; font-size: 14px; color: var(--ash);
+  border: 1px solid var(--hairline); background: var(--paper);
+  border-radius: 6px; padding: 12px 16px;
+}
+
+/* Three-column steps (engagement models) */
+.steps-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* Narrow reading column */
+.wrap.narrow { max-width: 780px; }
+
+/* Hiring FAQ */
+.faq { background: var(--paper); border: 1px solid var(--hairline); border-radius: 10px; margin-bottom: 12px; }
+.faq summary { cursor: pointer; padding: 16px 20px; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-weight: 400; color: var(--ash); font-size: 20px; }
+.faq[open] summary::after { content: '–'; }
+.faq p { padding: 0 20px 18px; font-size: 15px; }
+
+/* Project build-note expanders */
+.more-btn {
+  background: none; border: none; padding: 0; font: inherit;
+  font-size: 13px; font-weight: 600; color: var(--ink); cursor: pointer; text-align: left;
+  text-decoration: underline; text-underline-offset: 3px; align-self: flex-start;
+}
+.more { font-size: 14px; color: #3a3733; border-left: 3px solid var(--accent); padding-left: 12px; }
+
 /* Responsive: preserve hierarchy */
 @media (max-width: 1000px) {
   .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -251,7 +285,7 @@ button:disabled { opacity: 0.6; cursor: wait; }
   .cap:nth-child(3n) { border-right: 1px solid var(--hairline); }
   .cap:nth-child(2n) { border-right: none; }
   .cap:nth-last-child(-n+3) { border-bottom: 1px solid var(--hairline); }
-  .work-grid, .steps, .proof-grid { grid-template-columns: 1fr 1fr; }
+  .work-grid, .steps, .steps-3, .proof-grid { grid-template-columns: 1fr 1fr; }
   .award-grid { grid-template-columns: 1fr 1fr; }
   .leader { grid-template-columns: 1fr; }
   .band-grid { grid-template-columns: 1fr 1fr; }
@@ -266,7 +300,9 @@ button:disabled { opacity: 0.6; cursor: wait; }
   .menu-btn { display: block; }
   .section { padding: 56px 0; }
   .hero { padding: 44px 0 40px; }
-  .cap-grid, .work-grid, .steps, .proof-grid { grid-template-columns: 1fr; }
+  .cap-grid, .cap-grid-2, .work-grid, .steps, .steps-3, .proof-grid { grid-template-columns: 1fr; }
+  .cap-grid-2 .cap { border-right: none !important; border-bottom: 1px solid var(--hairline); }
+  .cap-grid-2 .cap:last-child { border-bottom: none; }
   .award-grid { grid-template-columns: 1fr; }
   .cap { border-right: none !important; }
   .form-row { grid-template-columns: 1fr; }

@@ -46,6 +46,19 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { rvObs.observe(el); });
   }
 
+  // Project build-note expanders
+  document.querySelectorAll('[data-more]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('.work-body');
+      var more = card ? card.querySelector('.more') : null;
+      if (!more) return;
+      var willOpen = more.hidden;
+      more.hidden = !willOpen;
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      btn.textContent = willOpen ? 'Build notes –' : 'Build notes +';
+    });
+  });
+
   // Animated metric counters (once, on first view)
   var counters = Array.prototype.slice.call(document.querySelectorAll('.band-value[data-count]'));
   if ('IntersectionObserver' in window && counters.length) {
