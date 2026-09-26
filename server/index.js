@@ -127,7 +127,7 @@ app.post('/api/contact', contactLimiter, (req, res) => {
     '<p style="margin-top:14px">Meanwhile, check out my work:</p>',
     '<p style="margin-top:6px"><a href="https://github.com/mwebidouglas08-netizen" style="color:#14b8a6">github.com/mwebidouglas08-netizen</a></p>',
     '<hr style="border:none;border-top:1px solid #1a1a24;margin:18px 0">',
-    '<p style="font-size:13px;color:#50506a">Douglas Mwebi &middot; Full-Stack Engineer &middot; Kisii, Kenya<br>',
+    '<p style="font-size:13px;color:#50506a">Douglas Mwebi &middot; Full-Stack Engineer &middot; Nairobi, Kenya<br>',
     '<a href="mailto:mwebidouglas08@gmail.com" style="color:#14b8a6">mwebidouglas08@gmail.com</a></p>',
     '</div></div>',
   ].join('');

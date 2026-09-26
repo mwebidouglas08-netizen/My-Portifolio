@@ -1,6 +1,6 @@
 # Douglas Mwebi — Daggy Techs Portfolio
 
-Personal portfolio website for **Douglas Mwebi** (Daggy Techs), a full-stack software engineer based in Kisii, Kenya.
+Personal portfolio website for **Douglas Mwebi** (Daggy Techs), a full-stack software engineer based in Nairobi, Kenya.
 
 **Stack:** Node.js · Express.js · Vanilla JS · CSS3 · Nodemailer
 
@@ -100,4 +100,4 @@ If `EMAIL_USER` / `EMAIL_PASS` are not set, submissions are logged to console on
 - **Email:** daggytechs@gmail.com
 - **Phone:** +254 796 820 013
 - **GitHub:** [mwebidouglas08-netizen](https://github.com/mwebidouglas08-netizen)
-- **Location:** Kisii Town, Kenya
+- **Location:** Nairobi, Kenya
