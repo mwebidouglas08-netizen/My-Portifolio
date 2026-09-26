@@ -108,6 +108,7 @@ button:disabled { opacity: 0.6; cursor: wait; }
 /* Dark metric band */
 .band { background: var(--obsidian); color: var(--paper); }
 .band-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 28px 24px; }
+.band-grid-6 { grid-template-columns: repeat(6, 1fr); }
 .band-label { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #a8a29e; margin-bottom: 4px; }
 .band-value { font-family: var(--serif); font-size: 30px; }
 
@@ -132,6 +133,8 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .work-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .work-body h3 { font-family: var(--serif); font-weight: 500; font-size: 22px; line-height: 1.15; }
 .flag { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--ink); color: var(--accent); border-radius: 6px; padding: 3px 8px; vertical-align: middle; margin-left: 8px; }
+.flag-patent { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent); color: var(--ink); border: 1px solid var(--ink); border-radius: 6px; padding: 3px 8px; vertical-align: middle; margin-left: 8px; }
+.work-patent { outline: 2px solid var(--ink); outline-offset: -2px; }
 .work-body p { font-size: 15px; }
 .work-body p strong { font-weight: 600; }
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 6px; }
@@ -162,6 +165,17 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .about-photo img { border-radius: 6px; width: 100%; aspect-ratio: 3 / 3.3; object-fit: cover; background: #d8d4cf; }
 .stack { margin-top: 16px; border: 1px solid var(--hairline); border-radius: 16px; background: var(--paper); padding: 18px; font-size: 14px; }
 .stack strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ash); margin-bottom: 6px; }
+
+/* Awards + leadership (CV recognition) */
+.award-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 28px; }
+.award { background: var(--paper); border: 1px solid var(--hairline); border-radius: 16px; padding: 22px; border-top: 4px solid var(--ink); }
+.award strong { display: block; font-family: var(--serif); font-size: 18px; font-weight: 500; margin-bottom: 6px; }
+.award span { font-size: 14px; color: #3a3733; }
+.leader { margin-top: 24px; background: var(--ink); color: var(--bone); border-radius: 16px; padding: 28px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
+.leader strong { font-family: var(--serif); font-size: 21px; font-weight: 500; display: block; margin-bottom: 8px; }
+.leader p { font-size: 15px; color: #d6d3d1; }
+.leader ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.leader ul li { border: 1px solid #3a3733; border-radius: 6px; padding: 10px 14px; font-size: 14px; }
 
 /* Steps */
 .steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 28px; }
@@ -209,7 +223,10 @@ button:disabled { opacity: 0.6; cursor: wait; }
   .cap:nth-child(2n) { border-right: none; }
   .cap:nth-last-child(-n+3) { border-bottom: 1px solid var(--hairline); }
   .work-grid, .steps, .proof-grid { grid-template-columns: 1fr 1fr; }
+  .award-grid { grid-template-columns: 1fr 1fr; }
+  .leader { grid-template-columns: 1fr; }
   .band-grid { grid-template-columns: 1fr 1fr; }
+  .band-grid-6 { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 700px) {
   .links, .nav .btn-accent { display: none; }
@@ -217,6 +234,7 @@ button:disabled { opacity: 0.6; cursor: wait; }
   .section { padding: 56px 0; }
   .hero { padding: 44px 0 40px; }
   .cap-grid, .work-grid, .steps, .proof-grid { grid-template-columns: 1fr; }
+  .award-grid { grid-template-columns: 1fr; }
   .cap { border-right: none !important; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
