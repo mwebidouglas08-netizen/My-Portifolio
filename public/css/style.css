@@ -198,7 +198,7 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .facts li:last-child { border-bottom: none; }
 .facts strong { color: var(--ash); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
 .about-photo { border: 1px solid var(--hairline); border-radius: 16px; overflow: hidden; background: var(--paper); padding: 10px; }
-.about-photo img { border-radius: 6px; width: 100%; aspect-ratio: 3 / 3.3; object-fit: cover; background: #d8d4cf; }
+.about-photo img { border-radius: 6px; width: 100%; aspect-ratio: 3 / 3.3; object-fit: cover; object-position: top center; background: #d8d4cf; }
 .stack { margin-top: 16px; border: 1px solid var(--hairline); border-radius: 16px; background: var(--paper); padding: 18px; font-size: 14px; }
 .stack strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ash); margin-bottom: 6px; }
 
