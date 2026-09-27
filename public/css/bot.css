@@ -4,7 +4,7 @@
   border-radius: 50%; background: var(--ink); color: var(--accent);
   border: 1px solid var(--ink); cursor: pointer; z-index: 70;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 24px rgba(12, 10, 8, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 8px 24px rgba(12, 10, 8, 0.25);
 }
 .chat-fab:hover { background: var(--obsidian); }
 .chat-fab svg { width: 26px; height: 26px; }
@@ -16,9 +16,12 @@
 .chat {
   position: fixed; right: 20px; bottom: 88px; width: 384px; max-width: calc(100vw - 24px);
   max-height: 560px; height: min(560px, calc(100dvh - 180px));
-  background: var(--paper); border: 1px solid var(--hairline); border-radius: 16px;
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.7); border-radius: 16px;
   display: flex; flex-direction: column; overflow: hidden; z-index: 70;
-  box-shadow: 0 24px 64px rgba(12, 10, 8, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 24px 64px rgba(12, 10, 8, 0.22);
 }
 .chat[hidden] { display: none; }
 .chat-head {
@@ -41,7 +44,7 @@
 
 .chat-body {
   flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px;
-  background: var(--bone);
+  background: rgba(244, 242, 240, 0.6);
 }
 .msg { max-width: 85%; padding: 10px 14px; border-radius: 10px; font-size: 14px; line-height: 1.55; }
 .msg-bot { background: var(--paper); border: 1px solid var(--hairline); color: var(--ink); align-self: flex-start; }
@@ -62,7 +65,7 @@
 .thinking span:nth-child(3) { animation-delay: 0.3s; }
 @keyframes think { 0%, 100% { opacity: 0.3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
 
-.chat-chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 16px 4px; background: var(--bone); }
+.chat-chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 16px 4px; background: rgba(244, 242, 240, 0.6); }
 .chat-chips:empty { display: none; }
 .chip {
   font-size: 12px; font-weight: 600; border: 1px solid var(--ink); background: transparent;
@@ -71,7 +74,7 @@
 .chip:hover { background: var(--ink); color: var(--accent); }
 
 .chat-form {
-  display: flex; gap: 8px; padding: 12px 16px 16px; background: var(--bone);
+  display: flex; gap: 8px; padding: 12px 16px 16px; background: rgba(244, 242, 240, 0.6);
   border-top: 1px solid var(--hairline);
 }
 .chat-form input {
