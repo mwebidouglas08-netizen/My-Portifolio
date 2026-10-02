@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Subtle scroll reveal (elements hidden only via JS, so no-JS stays visible)
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealSel = '.work, .cap, .award, .quote, .steps li, .leader, .about-grid, .contact-grid';
+  var revealSel = '.work, .cap, .award, .quote, .steps li, .leader, .about-grid, .contact-grid, .w3-live';
   var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSel));
   if ('IntersectionObserver' in window && revealEls.length) {
     revealEls.forEach(function (el) {
@@ -138,6 +138,23 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
     updateProgress();
+  }
+
+  // Cinematic hero parallax: the portrait backdrop lags the scroll (reduced-motion aware)
+  var heroBg = document.querySelector('.hero-bg');
+  if (heroBg && !reduce && window.matchMedia('(min-width: 701px)').matches) {
+    var pTick = false;
+    var parallax = function () {
+      if (pTick) return;
+      pTick = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y < 1400) heroBg.style.transform = 'translate3d(0,' + (y * 0.1) + 'px,0)';
+        pTick = false;
+      });
+    };
+    window.addEventListener('scroll', parallax, { passive: true });
+    parallax();
   }
 
   // Project build-note expanders
