@@ -9,14 +9,15 @@
   <meta property="og:description" content="4 patented innovations, 4 hackathon wins, 15+ production platforms across food security, water, cybersafety, fintech and civic transparency." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0a08'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='14' fill='%23e4f222' text-anchor='middle'%3EDM%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/instrument-serif-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/space-grotesk-300-700-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/fonts.css" />
   <link rel="preload" as="image" href="/images/douglass.jpeg" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/bot.css" />
 </head>
 <body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
   <!-- Ramp pattern: announcement bar -->
   <div class="announce">
@@ -61,8 +62,17 @@
       <div class="hero-veil" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="micro">Douglas Mwebi · Web3 &amp; Blockchain Engineer · Nairobi, Kenya</p>
-          <h1>Web3 products your clients can bank on.</h1>
+          <p class="micro">Douglas Mwebi · Nairobi, Kenya</p>
+          <p class="hero-role">
+            <span class="sr">Web3 &amp; Blockchain Engineer</span>
+            <span class="rot" aria-hidden="true"><span class="rot-track" id="rotTrack">
+              <span>Web3 &amp; Blockchain Engineer</span>
+              <span>Smart-contract auditor</span>
+              <span>AI &amp; automation builder</span>
+              <span>M-Pesa fintech engineer</span>
+            </span></span>
+          </p>
+          <h1>Web3 products your clients can <em>bank on.</em></h1>
           <p class="sub">
             I design, build and review smart contracts, dApps and payment rails —
             Solidity across Ethereum, Polygon and BSC, backed by full-stack delivery
@@ -83,9 +93,9 @@
           <strong>Douglas Mwebi</strong>
           <span class="byline">B.Sc. Computer Science · DaggyTechs lead · Nairobi</span>
           <ul>
-            <li><span>4</span> patented innovations</li>
-            <li><span>4</span> hackathon wins</li>
-            <li><span>15+</span> production platforms</li>
+            <li><span data-count="4">4</span> patented innovations</li>
+            <li><span data-count="4">4</span> hackathon wins</li>
+            <li><span data-count="15" data-suffix="+">15+</span> production platforms</li>
           </ul>
           <a href="#contact" class="btn-accent btn-sm">Hire me</a>
         </aside>
