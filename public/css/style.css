@@ -151,7 +151,6 @@ button:disabled { opacity: 0.6; cursor: wait; }
 }
 .hero-copy h1 em {
   font-style: italic;
-  background-image: linear-gradient(transparent 58%, var(--accent) 58%, var(--accent) 96%, transparent 96%);
 }
 .hero-copy h1.split em { opacity: 0; transition: opacity 0.5s ease 0.55s; }
 .hero-copy h1.split.go em { opacity: 1; }
@@ -386,50 +385,6 @@ button:disabled { opacity: 0.6; cursor: wait; }
   border-radius: 6px; padding: 12px 16px;
 }
 
-/* Live EIP-1193 wallet demo (real provider connection, read-only) */
-.w3-live {
-  margin-top: 32px; background: var(--ink); color: var(--bone);
-  border-radius: 16px; padding: 36px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
-  box-shadow: 0 30px 60px rgba(12, 10, 8, 0.22);
-}
-.w3-copy .micro { color: #a8a29e; }
-.w3-copy h3 { font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.1; margin-bottom: 10px; }
-.w3-copy > p { font-size: 15px; line-height: 1.55; color: #d6d3d1; max-width: 46ch; }
-.chain-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.chain-chips li {
-  font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.04em;
-  color: #a8a29e; border: 1px solid #3a3733; border-radius: 100px; padding: 5px 12px;
-  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-}
-.chain-chips li.on { background: var(--accent); color: var(--ink); border-color: var(--accent); }
-.w3-panel {
-  background: var(--obsidian); border: 1px solid #2f2c27; border-radius: 12px; padding: 8px 22px 20px;
-}
-.w3-row {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
-  padding: 13px 0; border-bottom: 1px dashed #2f2c27;
-}
-.w3-row span {
-  font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #a8a29e; flex-shrink: 0;
-}
-.w3-row b {
-  font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--bone);
-  text-align: right; overflow-wrap: anywhere; min-width: 0;
-}
-#w3Addr { color: var(--accent); }
-.w3-panel.err #w3Status { color: #ff8b84; }
-.w3-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 18px; }
-.w3-copy-btn {
-  background: transparent; border: 1px solid #3a3733; color: var(--bone);
-  border-radius: 6px; padding: 12px 18px; font: inherit; font-size: 14px; font-weight: 600;
-  cursor: pointer; transition: border-color 0.3s ease, color 0.3s ease;
-}
-.w3-copy-btn:hover { border-color: var(--accent); color: var(--accent); }
-.w3-link { font-size: 14px; font-weight: 600; color: var(--accent); }
-.w3-note { margin-top: 14px; font-family: var(--mono); font-size: 11px; color: #a8a29e; }
-
 /* Skip link (keyboard a11y) */
 .skip {
   position: fixed; top: 10px; left: 10px; z-index: 100;
@@ -502,7 +457,7 @@ button:disabled { opacity: 0.6; cursor: wait; }
   .hero.anim .hero-bg img { opacity: 1 !important; transform: none !important; transition: none !important; }
   .rot-track { transition: none !important; }
   .btn-accent, .btn-outline, .work, .work-img img, .links a::after,
-  .btn-accent::after, .award, .steps li, .quote, .faq, .skip, .chain-chips li { transition: none; }
+  .btn-accent::after, .award, .steps li, .quote, .faq, .skip { transition: none; }
   .btn-accent:hover, .btn-outline:hover, .work:hover .work-img img,
   .award:hover, .steps li:hover, .quote:hover { transform: none; }
 }
@@ -531,7 +486,4 @@ button:disabled { opacity: 0.6; cursor: wait; }
   .field input, .field textarea, .chat-form input { font-size: 16px; }
   .footer-grid { grid-template-columns: 1fr; }
   .band-grid { grid-template-columns: 1fr 1fr; }
-  .w3-live { grid-template-columns: 1fr; padding: 26px 22px; gap: 26px; }
-  .w3-panel { padding: 6px 16px 18px; }
-  .w3-row b { font-size: 12.5px; }
 }

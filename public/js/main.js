@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Subtle scroll reveal (elements hidden only via JS, so no-JS stays visible)
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealSel = '.work, .cap, .award, .quote, .steps li, .leader, .about-grid, .contact-grid, .w3-live';
+  var revealSel = '.work, .cap, .award, .quote, .steps li, .leader, .about-grid, .contact-grid';
   var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSel));
   if ('IntersectionObserver' in window && revealEls.length) {
     revealEls.forEach(function (el) {

@@ -150,35 +150,6 @@
           <div class="cap"><strong>Wallets &amp; chains</strong><span>MetaMask / WalletConnect integration across Ethereum, Polygon and BSC (EVM).</span></div>
         </div>
 
-        <!-- Live EIP-1193 demo: real provider connection, read-only -->
-        <div class="w3-live">
-          <div class="w3-copy">
-            <p class="micro">Live demo — EIP-1193</p>
-            <h3>Connect your wallet. This page reads it live.</h3>
-            <p>The button opens a real EIP-1193 connection in your browser: address, chain and native balance are read straight from your wallet provider. Nothing is stored, nothing is sent, no signature is ever requested.</p>
-            <ul class="chain-chips" id="chainChips">
-              <li data-chain="0x1">Ethereum</li>
-              <li data-chain="0x89">Polygon</li>
-              <li data-chain="0x38">BSC</li>
-              <li data-chain="0x2105">Base</li>
-              <li data-chain="0xa4b1">Arbitrum</li>
-              <li data-chain="0xa">Optimism</li>
-            </ul>
-          </div>
-          <div class="w3-panel" id="w3Panel">
-            <div class="w3-row"><span>Status</span><b id="w3Status">No wallet connected</b></div>
-            <div class="w3-row"><span>Address</span><b id="w3Addr">—</b></div>
-            <div class="w3-row"><span>Chain</span><b id="w3Chain">—</b></div>
-            <div class="w3-row"><span>Balance</span><b id="w3Bal">—</b></div>
-            <div class="w3-actions">
-              <button type="button" class="btn-accent" id="w3Btn">Connect wallet</button>
-              <button type="button" class="w3-copy-btn" id="w3Copy" hidden>Copy address</button>
-              <a class="w3-link" id="w3Link" href="https://metamask.io" target="_blank" rel="noopener" hidden>Install a wallet</a>
-            </div>
-            <p class="w3-note" id="w3Note">Read-only session — this demo never requests transactions.</p>
-          </div>
-        </div>
-
         <p class="tools">Solidity · Hardhat · Ethers.js / Web3.js · Remix · IPFS · MetaMask / WalletConnect · Ethereum · Polygon · BSC</p>
       </div>
     </section>
@@ -534,7 +505,6 @@
   </section>
 
   <script src="/js/main.js"></script>
-  <script src="/js/wallet.js"></script>
   <script src="/js/bot.js"></script>
 </body>
 </html>
